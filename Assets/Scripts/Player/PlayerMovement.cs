@@ -6,33 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed = .05f;
+
+    private Rigidbody2D rb;
+    private Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
-        {
-            transform.localPosition = transform.localPosition + new Vector3(0, playerSpeed, 0);
-        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+    }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.localPosition = transform.localPosition + new Vector3(0, -playerSpeed, 0);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.localPosition = transform.localPosition + new Vector3(-playerSpeed, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.localPosition = transform.localPosition + new Vector3(playerSpeed, 0, 0);
-        }
+    private void FixedUpdate()
+    {
+        rb.velocity = movement * playerSpeed;
     }
 }
