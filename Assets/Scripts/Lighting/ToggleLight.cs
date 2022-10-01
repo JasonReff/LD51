@@ -15,13 +15,11 @@ public class ToggleLight : MonoBehaviour
     private void OnEnable()
     {
         LightningStrikeManager.OnLightningStrikeStart += OnLightningStrikeStart;
-        //LightningStrikeManager.OnLightningStrikeEnd += OnLightningStrikeEnd;
     }
 
     private void OnDisable()
     {
         LightningStrikeManager.OnLightningStrikeStart -= OnLightningStrikeStart;
-        //LightningStrikeManager.OnLightningStrikeEnd -= OnLightningStrikeEnd;
     }
 
     private void Start()
@@ -56,7 +54,6 @@ public class ToggleLight : MonoBehaviour
     private void OnLightningStrikeStart()
     {
         StartCoroutine(LightningCoroutine());
-        
 
         IEnumerator LightningCoroutine()
         {
@@ -73,11 +70,6 @@ public class ToggleLight : MonoBehaviour
         }
     }
 
-    struct LightningFlicker
-    {
-        public float OnDuration;
-        public float OffDuration;
-    }
 
     private bool IsTouchingLightSource()
     {
