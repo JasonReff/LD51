@@ -4,6 +4,7 @@ using UnityEngine;
 public class ToggleLight : MonoBehaviour
 {
     private bool _isLightningStriking;
+    private List<Collider2D> colliders;
 
     private void OnEnable()
     {
@@ -21,7 +22,7 @@ public class ToggleLight : MonoBehaviour
     {
         if (visibility)
             gameObject.layer = 6;
-        else if (_isLightningStriking == false)
+        else if (!_isLightningStriking && !IsTouchingLightSource())
             gameObject.layer = 7;
     }
 
@@ -33,19 +34,23 @@ public class ToggleLight : MonoBehaviour
 
     private void OnLightningStrikeEnd()
     {
-        _isLightningStriking = false;
-        ChangeVisibility(false);
-        var colliders = new List<Collider2D>();
+        _isLightningStriking = false;;
+        ChangeVisibility(IsTouchingLightSource());
+    }
+
+    private bool IsTouchingLightSource()
+    {
+        colliders = new List<Collider2D>();
         GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
         if (colliders.Count == 0)
-            return;
+            return false;
         foreach (var collider in colliders)
         {
             if (collider.TryGetComponent<LightSource>(out LightSource lightSource))
             {
-                ChangeVisibility(true);
-                return;
+                return true;
             }
         }
+        return false;
     }
 }
