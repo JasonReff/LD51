@@ -5,10 +5,10 @@ using DG.Tweening;
 
 public class DoTweenCapacityManager : MonoBehaviour
 {
-    
+    [SerializeField] private int _maxTweens, _maxSequences;
     void Start()
     {
-        DOTween.SetTweensCapacity(2000, 100);
+        DOTween.SetTweensCapacity(_maxTweens, _maxSequences);
     }
 
 }
