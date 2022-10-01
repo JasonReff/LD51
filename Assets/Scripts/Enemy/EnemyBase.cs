@@ -9,9 +9,6 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField]
     private bool alwaysVisible = true;
 
-    [SerializeField]
-    private bool chasePlayer = false;
-
     protected NavMeshAgent agent;
     public NavMeshAgent Agent { get => agent; }
     private EnemyState _state;
@@ -89,13 +86,13 @@ public class PatrolState : EnemyState
         base.BeginState();
         _patrolPoints = (_stateMachine as PatrolEnemy).PatrolPoints;
         _detectsPlayer = (_stateMachine as PatrolEnemy).DetectsPlayer;
-        _stateMachine.Agent.SetDestination(_patrolPoints[0]);
     }
 
     public override void UpdateState()
     {
         if ((Vector2)_stateMachine.transform.position == _patrolPoints[_nextPatrolPointIndex])
             ChoosePatrolPoint();
+        _stateMachine.Agent.SetDestination(_patrolPoints[_nextPatrolPointIndex]);
         AttemptDetectPlayer();
     }
 
@@ -114,6 +111,5 @@ public class PatrolState : EnemyState
         _nextPatrolPointIndex++;
         if (_nextPatrolPointIndex >= _patrolPoints.Count)
             _nextPatrolPointIndex = 0;
-        _stateMachine.Agent.SetDestination(_patrolPoints[_nextPatrolPointIndex]);
     }
 }
