@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e9568bf08be3204b8fef727011549e9
+guid: 264bd0d2f074c23468617d9c8d8f0196
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rug_tiles_0
+      name: brick_wall (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -120,14 +120,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee377fa4254f79f4c869a59fb5d9b65f
-      internalID: 1417812675
+      spriteID: c8b4233c48646a840b36cca343b70327
+      internalID: 1335557468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rug_tiles_1
+      name: brick_wall (1)_1
       rect:
         serializedVersion: 2
         x: 16
@@ -141,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35d8293e20cb21f4f88a373232590a20
-      internalID: 1162409989
+      spriteID: 065ee83f5b4999b4891f99dfb5716bb1
+      internalID: 632367470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rug_tiles_2
+      name: brick_wall (1)_2
       rect:
         serializedVersion: 2
         x: 32
@@ -162,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d3d8349e3372df43a51607dc6b868a4
-      internalID: 728660984
+      spriteID: 66650a725107b06428dea99090798be2
+      internalID: 1067044176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rug_tiles_3
+      name: brick_wall (1)_3
       rect:
         serializedVersion: 2
         x: 48
@@ -183,113 +183,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 804238fbf2451ca4981f662b8a3b0c95
-      internalID: 137812674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rug_tiles_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46f67aed00bcdd64cb26e4ab71bc1a25
-      internalID: 724347983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rug_tiles_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b26884dd13dbb1b44814831025654250
-      internalID: 430303944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rug_tiles_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03d4acacb37b24c4fb0756e307469e22
-      internalID: 1780025408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rug_tiles_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83914579796305244bb4d64d15fedd24
-      internalID: 1682526746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rug_tiles_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e51609f189d85304ba0e8062ba61893b
-      internalID: 1415710626
+      spriteID: b1d9317b78ddbd44d80015eb3edebc68
+      internalID: 519886610
       vertices: []
       indices: 
       edges: []
@@ -305,15 +200,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rug_tiles_4: 724347983
-      rug_tiles_6: 1780025408
-      rug_tiles_1: 1162409989
-      rug_tiles_5: 430303944
-      rug_tiles_7: 1682526746
-      rug_tiles_8: 1415710626
-      rug_tiles_0: 1417812675
-      rug_tiles_3: 137812674
-      rug_tiles_2: 728660984
+      brick_wall (1)_0: 1335557468
+      brick_wall (1)_3: 519886610
+      brick_wall (1)_1: 632367470
+      brick_wall (1)_2: 1067044176
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
