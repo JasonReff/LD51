@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LightningStrikeManager : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
     private Coroutine _lightningCoroutine;
     [SerializeField] private float _lightningDelay, _lightningDuration;
+    public static event Action OnLightningStrikeStart, OnLightningStrikeEnd;
 
     private void Start()
     {
@@ -16,9 +17,9 @@ public class LightningStrikeManager : MonoBehaviour
     private IEnumerator LightningCoroutine()
     {
         yield return new WaitForSeconds(_lightningDelay);
-        _camera.enabled = true;
+        OnLightningStrikeStart?.Invoke();
         yield return new WaitForSeconds(_lightningDuration);
-        _camera.enabled = false;
+        OnLightningStrikeEnd?.Invoke();
         _lightningCoroutine = StartCoroutine(LightningCoroutine());
     }
 }
