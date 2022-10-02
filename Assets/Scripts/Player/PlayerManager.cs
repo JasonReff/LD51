@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     private void PlayerDeath()
     {
         StartCoroutine(GhostAnimation());
-        SceneLoader.Instance.ReloadScene(_deathDuration);
+        //SceneLoader.Instance.ReloadScene(_deathDuration);
     }
 
     private IEnumerator GhostAnimation()
