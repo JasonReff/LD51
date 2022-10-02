@@ -8,7 +8,7 @@ public class NextSceneDoor : MonoBehaviour
     [SerializeField] private string _sceneName;
     public void MoveToScene()
     {
-        SceneManager.LoadScene(_sceneName);
+        SceneLoader.Instance.LoadScene(_sceneName, true);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
