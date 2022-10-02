@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightningStrikeManager : MonoBehaviour
+public class LightningStrikeManager : SingletonMonobehaviour<LightningStrikeManager>
 {
     private Coroutine _lightningCoroutine;
     [SerializeField] private float _lightningDelay, _lightningDuration, _initialDelay;
