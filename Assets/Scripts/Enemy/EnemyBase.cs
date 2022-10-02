@@ -67,10 +67,38 @@ public class EnemyState
 
 public class ChaseState : EnemyState
 {
+    private bool _isPatrolEnemy;
+    private Transform _playerTransform;
     public ChaseState(EnemyBase stateMachine) : base(stateMachine) { }
+
+    public override void BeginState()
+    {
+        base.BeginState();
+        if (_stateMachine is PatrolEnemy) _isPatrolEnemy = true;
+        _playerTransform = PlayerManager.Instance.transform;
+    }
     public override void UpdateState()
     {
-        _stateMachine.Agent.SetDestination(PlayerManager.Instance.transform.position);
+        if (_playerTransform == null)
+            _playerTransform = PlayerManager.Instance.transform;
+        _stateMachine.Agent.SetDestination(_playerTransform.position);
+        CheckForPatrolState();
+    }
+
+    private void CheckForPatrolState()
+    {
+        if (_isPatrolEnemy && IsPlayerOutsideVisionRange())
+        {
+            _stateMachine.ChangeState(new PatrolState(_stateMachine));
+        }
+    }
+
+    private bool IsPlayerOutsideVisionRange()
+    {
+        float distance = Vector3.Distance(_playerTransform.position, _stateMachine.transform.position);
+        if (distance > _stateMachine.VisionRadius)
+            return true;
+        return false;
     }
 }
 
