@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField]
+    private Canvas canvas;
     public static SceneLoader Instance { get; private set; }
 
     public void Awake()
@@ -25,12 +27,15 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadSceneAsync(string sceneName)
     {
+        canvas.enabled = true;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
+
+        canvas.enabled = false;
     }
 
     public void ReloadScene(bool async)
