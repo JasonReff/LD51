@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7168247466158521783}
   - component: {fileID: 8654247563139196007}
   - component: {fileID: 8280124668314070833}
+  - component: {fileID: 4923031286331526134}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -109,6 +110,7 @@ MonoBehaviour:
   - {fileID: 7589513906314213411}
   _detectsPlayer: 0
   _reverseOnFinish: 0
+  _detectsPlayerThroughWall: 0
 --- !u!195 &371840125030450613
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -200,6 +202,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6039f07f77830d547ac73dd4ed5d99b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4923031286331526134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371840125030450571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869d9018d6a1bfb4892a9577dce7a8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 371840125030450610}
 --- !u!1 &7693734546468755774
 GameObject:
   m_ObjectHideFlags: 0

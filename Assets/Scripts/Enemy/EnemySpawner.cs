@@ -11,5 +11,6 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(_spawnDelay);
         Instantiate(_enemy, _spawnLocation, Quaternion.identity);
+        AudioManager.SwapMusic();
     }
 }

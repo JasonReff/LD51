@@ -48,7 +48,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   _lightningDelay: 9
   _lightningDuration: 1
-  _initialDelay: 3
+  _initialDelay: 0
 --- !u!114 &5820806309145933573
 MonoBehaviour:
   m_ObjectHideFlags: 0
