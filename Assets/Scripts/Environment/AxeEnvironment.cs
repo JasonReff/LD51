@@ -5,7 +5,8 @@ using UnityEngine;
 public class AxeEnvironment : MonoBehaviour
 {
     [SerializeField]
-    GameObject openAxe;
+    private GameObject[] openAxes;
+    
 
     bool axeOpen = false;
     bool reset = true;
@@ -35,14 +36,20 @@ public class AxeEnvironment : MonoBehaviour
     void OpenAxe()
     {
         print("open axe");
-        openAxe.SetActive(true);
+        foreach(var openAxe in openAxes)
+        {
+            openAxe.SetActive(true);
+        }
         NavMeshManager.Instance.RebakeHumanoidMesh();
         axeOpen = true;
     }
     void CloseAxe()
     {
         print("close axe");
-        openAxe.SetActive(false);
+        foreach (var openAxe in openAxes)
+        {
+            openAxe.SetActive(false);
+        }
         NavMeshManager.Instance.RebakeHumanoidMesh();
         axeOpen = false;
     }
