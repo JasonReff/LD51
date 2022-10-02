@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class EnemyTransformation : MonoBehaviour
+{
+    [SerializeField] private NavMeshAgent _navMeshAgent;
+    [SerializeField] private float _vampireSpeed, _batSpeed;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private bool _isBat;
+
+    private void OnEnable()
+    {
+        LightningStrikeManager.OnLightningStrikeStart += DoTransformation;
+    }
+
+    private void OnDisable()
+    {
+        LightningStrikeManager.OnLightningStrikeStart -= DoTransformation;
+    }
+
+    private void DoTransformation()
+    {
+        _isBat = !_isBat;
+        _animator.SetBool("BatForm", _isBat);
+        if (_isBat)
+        {
+            _navMeshAgent.speed = _batSpeed;
+        }
+        else
+        {
+            _navMeshAgent.speed = _vampireSpeed;
+        }
+    }
+}
