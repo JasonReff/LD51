@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1c5263b42f468374eb4a0278f1478d4b
+guid: 05e7098660056484a9e8d5af7c06e69b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: axe_0
+      name: suit_of_armor_walk_no_axe_0
       rect:
         serializedVersion: 2
         x: 0
@@ -120,17 +120,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c08fc8bdb1034143abdf24a0dc7c0e4
-      internalID: -1742915468
+      spriteID: a9ddc94551dd084468fa9b59291cee6d
+      internalID: -1127407509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_1
+      name: suit_of_armor_walk_no_axe_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -141,29 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9fb8b22a19b131468584fe7db7ac00b
-      internalID: -157131925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: axe_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b958f06b7a5d0c4ea53cf5d88b57018
-      internalID: 1629704171
+      spriteID: 7ceb11ba4f0ca384bb49154b97dc9ca9
+      internalID: -1041137471
       vertices: []
       indices: 
       edges: []
@@ -179,9 +158,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      axe_2: 1629704171
-      axe_0: -1742915468
-      axe_1: -157131925
+      suit_of_armor_walk_no_axe_1: -1041137471
+      suit_of_armor_walk_no_axe_0: -1127407509
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

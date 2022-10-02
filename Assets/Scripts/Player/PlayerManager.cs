@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Animator _tombstoneAnimator;
     [SerializeField] private SpriteRenderer _ghost, _tombstone;
     [SerializeField] private float _deathDuration = 3f, _ghostRiseDuration = 1f, _ghostRiseDistance = 1f, _tombstoneDuration = 1f;
+    [SerializeField] private AudioClip _deathSound;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator GhostAnimation()
     {
+        AudioManager.PlaySoundEffect(_deathSound);
         Time.timeScale = 0f;
         GetComponent<SpriteRenderer>().enabled = false;
         _tombstone.enabled = true;
