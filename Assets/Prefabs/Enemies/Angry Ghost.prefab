@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: _detectsPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 720159036456628826, guid: 1e076ef0e472d284e8646b3a9ef52b8e, type: 3}
+      propertyPath: _detectsPlayerThroughWall
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 720159036456628828, guid: 1e076ef0e472d284e8646b3a9ef52b8e, type: 3}
       propertyPath: m_RootOrder
       value: 0
