@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator Start()
     {
+        _spawnLocation = PlayerManager.Instance.transform.position;
         yield return new WaitForSeconds(_spawnDelay);
         Instantiate(_enemy, _spawnLocation, Quaternion.identity);
         AudioManager.SwapMusic();

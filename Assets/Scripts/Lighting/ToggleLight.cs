@@ -25,6 +25,7 @@ public class ToggleLight : MonoBehaviour
     private void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
+        ChangeVisibilityTweenless(false);
     }
 
     public void ChangeVisibility(bool visibility)
