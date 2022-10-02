@@ -14,6 +14,8 @@ public class PatrolEnemy : EnemyBase
     [SerializeField] private bool _detectsPlayer;
     public bool DetectsPlayer { get => _detectsPlayer; }
     [SerializeField] private bool _reverseOnFinish;
+    [SerializeField] private bool _detectsPlayerThroughWall;
+    public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; }
     public bool ReverseOnFinish { get => _reverseOnFinish; }
 
     protected override void Start()

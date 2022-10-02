@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThunderManager : SingletonMonobehaviour<ThunderManager>
 {
     [SerializeField] private SoundEffectPool _thunderPool;
+    [SerializeField] private float _thunderDelay;
 
     private void OnEnable()
     {
@@ -18,6 +19,12 @@ public class ThunderManager : SingletonMonobehaviour<ThunderManager>
 
     private void PlayThunder()
     {
-        AudioManager.PlaySoundEffect(_thunderPool.RandomClip());
+        StartCoroutine(ThunderCoroutine());
+
+        IEnumerator ThunderCoroutine()
+        {
+            yield return new WaitForSeconds(_thunderDelay);
+            AudioManager.PlaySoundEffect(_thunderPool.RandomClip());
+        }
     }
 }

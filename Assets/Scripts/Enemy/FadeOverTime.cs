@@ -13,7 +13,7 @@ public class FadeOverTime : MonoBehaviour
 
     private IEnumerator FadeCoroutine()
     {
-        GetComponent<SpriteRenderer>().DOFade(0f, _fadeDuration);
+        transform.DOScale(0f, _fadeDuration);
         yield return new WaitForSeconds(_fadeDuration + _destructionDelay);
         Destroy(gameObject);
     }

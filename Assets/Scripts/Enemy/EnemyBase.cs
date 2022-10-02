@@ -81,6 +81,8 @@ public class PatrolState : EnemyState
     private bool _detectsPlayer;
     private bool _reverseOnFinish;
     private bool _movingInReverse;
+    private bool _detectPlayerThroughWall;
+    private Transform _playerTransform;
     public PatrolState(EnemyBase stateMachine) : base(stateMachine) { }
 
     public override void BeginState()
@@ -89,7 +91,9 @@ public class PatrolState : EnemyState
         _patrolPoints = (_stateMachine as PatrolEnemy).PatrolPoints;
         _detectsPlayer = (_stateMachine as PatrolEnemy).DetectsPlayer;
         _reverseOnFinish = (_stateMachine as PatrolEnemy).ReverseOnFinish;
+        _detectPlayerThroughWall = (_stateMachine as PatrolEnemy).DetectsPlayerThroughWall;
         _stateMachine.Agent.SetDestination(_patrolPoints[0]);
+        _playerTransform = PlayerManager.Instance.transform;
     }
 
     public override void UpdateState()
@@ -104,9 +108,29 @@ public class PatrolState : EnemyState
     {
         if (!_detectsPlayer)
             return;
-        if (Vector3.Distance(PlayerManager.Instance.transform.position, _stateMachine.transform.position) <= _stateMachine.VisionRadius)
+        if (_playerTransform == null)
+            _playerTransform = PlayerManager.Instance.transform;
+        if (Vector3.Distance(_playerTransform.position, _stateMachine.transform.position) <= _stateMachine.VisionRadius)
         {
+            if (IsWallObscuring())
+                return;
             _stateMachine.ChangeState(new ChaseState(_stateMachine));
+        }
+
+        bool IsWallObscuring()
+        {
+            if (_detectPlayerThroughWall)
+                return false;
+            List<RaycastHit2D> results = new List<RaycastHit2D>();
+            int hits = Physics2D.Linecast(_stateMachine.transform.position, _playerTransform.position, new ContactFilter2D().NoFilter(), results);
+            foreach (var hit in results)
+            {
+                if (hit.transform.gameObject.tag == "Wall")
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
