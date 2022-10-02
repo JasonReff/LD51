@@ -6,9 +6,9 @@ using UnityEngine;
 public class CharacterFlip : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private Vector3 _scale, _flippedScale;
+    protected Vector3 _scale, _flippedScale;
 
-    private void Start()
+    protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _scale = transform.localScale;
@@ -17,9 +17,14 @@ public class CharacterFlip : MonoBehaviour
 
     private void Update()
     {
-        if (_rb.velocity.x < 0)
+        SetDirection();
+    }
+
+    protected virtual void SetDirection()
+    {
+        if (_rb.velocity.x < -0.2)
             transform.localScale = _flippedScale;
-        else
+        else if (_rb.velocity.x > 0.2)
             transform.localScale = _scale;
     }
 }

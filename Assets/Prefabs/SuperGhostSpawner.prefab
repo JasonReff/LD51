@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7494706950297219192}
-  - component: {fileID: 7494706950297219193}
+  - component: {fileID: 8891984554155905433}
   m_Layer: 0
   m_Name: SuperGhostSpawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7494706950297219193
+--- !u!114 &8891984554155905433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398ce94db2400a5478f13d5eeaeea5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnLocation: {x: -25, y: -17}
+  _spawnLocation: {x: 0, y: 0}
   _enemy: {fileID: 5144220553442444028, guid: df3dc413c8815314680d8494494936c7, type: 3}
   _spawnDelay: 100

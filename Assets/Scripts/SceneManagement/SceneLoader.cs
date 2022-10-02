@@ -38,9 +38,31 @@ public class SceneLoader : MonoBehaviour
         canvas.enabled = false;
     }
 
+    IEnumerator LoadSceneAsync(string sceneName, float minimumDuration)
+    {
+        canvas.enabled = true;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        float time = 0;
+        while (!asyncLoad.isDone && time <= minimumDuration)
+        {
+            time += Time.fixedUnscaledDeltaTime;
+            yield return null;
+        }
+
+        canvas.enabled = false;
+    }
+
     public void ReloadScene(bool async)
     {
+        Time.timeScale = 1;
         string currentScene = SceneManager.GetActiveScene().name;
         LoadScene(currentScene, async);
+    }
+
+    public void ReloadScene(float minimumDuration)
+    {
+        Time.timeScale = 1;
+        string currentScene = SceneManager.GetActiveScene().name;
+        StartCoroutine(LoadSceneAsync(currentScene, minimumDuration));
     }
 }

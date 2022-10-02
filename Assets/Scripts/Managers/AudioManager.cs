@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class AudioManager : SingletonMonobehaviour<AudioManager>
 {
-    [SerializeField] private AudioSource _gameMusic, _pauseMusic, _effects;
+    [SerializeField] private AudioSource _gameMusic, _ghostMusic, _pauseMusic, _effects;
     [SerializeField] private float _masterVolume, _musicVolume, _effectsVolume;
-    private static float _minPitch = 0.9f, _maxpitch = 1.1f;
+    private static float _minPitch = 0.9f, _maxpitch = 1.1f, _fadeDuration = 0.25f;
 
     public static void PlaySoundEffect(AudioClip audioClip)
     {
@@ -18,6 +19,12 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
         Instance._musicVolume = volume;
         Instance._gameMusic.volume = volume * Instance._masterVolume;
         Instance._pauseMusic.volume = volume * Instance._masterVolume;
+    }
+
+    public static void SwapMusic()
+    {
+        Instance._gameMusic.DOFade(0f, _fadeDuration);
+        Instance._ghostMusic.DOFade(1f, _fadeDuration);
     }
 
     public static void PauseGameMusic()
