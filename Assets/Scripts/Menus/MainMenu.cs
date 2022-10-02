@@ -7,8 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
+    // fields
     public string[] levels;
-    public Image Background;
+    public Camera cam;
+    private Color cameraDefaultColor;
+    public Image background;
+    private Color bgDefaultColor;
     public Sprite OpenDoorBackground;
     public GameObject title;
     public GameObject levelSelect;
@@ -17,26 +21,54 @@ public class MainMenu : MonoBehaviour
     public GameObject fontCredits;
     public GameObject instructions;
 
+    // timing
+    private bool timerActive = false;
+    public float timerDuration;
+    public float currentTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        bgDefaultColor = background.color;
+        cameraDefaultColor = cam.backgroundColor;
+        currentTime = timerDuration;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (timerActive)
+        {
+            currentTime -= 1;
+            float clerp = Mathf.Abs(1 - (currentTime / timerDuration));
+            background.color = Color.Lerp(Color.white, bgDefaultColor, clerp);
+            cam.backgroundColor = Color.Lerp(Color.white, cameraDefaultColor, clerp);
+
+            if (currentTime <= 0)
+            {
+                timerActive = false;
+                currentTime = timerDuration;
+                resetColors();
+            }
+        }
+    }
+
+    public void resetColors() 
+    {
+        background.color = bgDefaultColor;
+        cam.backgroundColor = cameraDefaultColor;
     }
 
     public void LightningStrike()
     {
-
+        cam.backgroundColor = Color.white;
+        background.color = Color.white;
+        timerActive = true;
     }
 
     public void OpenDoor()
     {
-        Background.sprite = OpenDoorBackground;
+        background.sprite = OpenDoorBackground;
     }
 
     public void HideSubmenus() {
@@ -50,10 +82,16 @@ public class MainMenu : MonoBehaviour
 
     public void LoadLevel(int number)
     {
-        LightningStrike();
-        OpenDoor();
-        // time delay
-        SceneManager.LoadScene(levels[number]);
+        StartCoroutine(LoadLevelCoroutine());
+
+        IEnumerator LoadLevelCoroutine()
+        {
+            LightningStrike();
+            OpenDoor();
+            yield return new WaitForSeconds(timerDuration / 60);
+            SceneManager.LoadScene(levels[number]);
+
+        }
     }
 
     public void DisplayLevelSelect()
