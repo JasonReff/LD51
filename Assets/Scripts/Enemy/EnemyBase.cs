@@ -9,9 +9,6 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField]
     private bool alwaysVisible = true;
 
-    [SerializeField]
-    private bool chasePlayer = false;
-
     protected NavMeshAgent agent;
     public NavMeshAgent Agent { get => agent; }
     private EnemyState _state;
@@ -82,6 +79,8 @@ public class PatrolState : EnemyState
     private List<Vector2> _patrolPoints;
     private int _nextPatrolPointIndex;
     private bool _detectsPlayer;
+    private bool _reverseOnFinish;
+    private bool _movingInReverse;
     public PatrolState(EnemyBase stateMachine) : base(stateMachine) { }
 
     public override void BeginState()
@@ -89,6 +88,8 @@ public class PatrolState : EnemyState
         base.BeginState();
         _patrolPoints = (_stateMachine as PatrolEnemy).PatrolPoints;
         _detectsPlayer = (_stateMachine as PatrolEnemy).DetectsPlayer;
+        _reverseOnFinish = (_stateMachine as PatrolEnemy).ReverseOnFinish;
+        _stateMachine.Agent.SetDestination(_patrolPoints[0]);
     }
 
     public override void UpdateState()
@@ -111,8 +112,22 @@ public class PatrolState : EnemyState
 
     private void ChoosePatrolPoint()
     {
-        _nextPatrolPointIndex++;
+        if (_movingInReverse)
+            _nextPatrolPointIndex--;
+        else
+            _nextPatrolPointIndex++;
+        if (_reverseOnFinish && _nextPatrolPointIndex == 0)
+            _movingInReverse = false;
         if (_nextPatrolPointIndex >= _patrolPoints.Count)
-            _nextPatrolPointIndex = 0;
+        {
+            if (!_reverseOnFinish)
+                _nextPatrolPointIndex = 0;
+            else
+            {
+                _movingInReverse = true;
+                _nextPatrolPointIndex--;
+            }
+        }
+        _stateMachine.Agent.SetDestination(_patrolPoints[_nextPatrolPointIndex]);
     }
 }

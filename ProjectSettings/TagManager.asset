@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Visible
-  - Invisible
-  - 
-  - 
+  - Ghost
+  - Player
+  - Enemy
+  - Hazard
   - 
   - 
   - 

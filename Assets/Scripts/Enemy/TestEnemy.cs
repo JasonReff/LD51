@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TestEnemy : EnemyBase
 {
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         agent.SetDestination(PlayerManager.Instance.transform.position);
     }
 }

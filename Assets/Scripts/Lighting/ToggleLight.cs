@@ -1,51 +1,89 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using System.Collections;
 
 public class ToggleLight : MonoBehaviour
 {
     private bool _isLightningStriking;
+    private List<Collider2D> colliders;
+    private SpriteRenderer _sr;
+    private float _fadeDuration = 0.5f;
+    private Tween _fadeTween;
+    private (float, float)[] _flickers = new (float, float)[] {(0f, 0.05f), (0.1f, 0.05f), (0.2f, 0.1f), (0.3f, 0f)};
 
     private void OnEnable()
     {
         LightningStrikeManager.OnLightningStrikeStart += OnLightningStrikeStart;
-        LightningStrikeManager.OnLightningStrikeEnd += OnLightningStrikeEnd;
     }
 
     private void OnDisable()
     {
         LightningStrikeManager.OnLightningStrikeStart -= OnLightningStrikeStart;
-        LightningStrikeManager.OnLightningStrikeEnd -= OnLightningStrikeEnd;
+    }
+
+    private void Start()
+    {
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     public void ChangeVisibility(bool visibility)
     {
         if (visibility)
-            gameObject.layer = 6;
-        else if (_isLightningStriking == false)
-            gameObject.layer = 7;
+            ChangeAlpha(1f);
+        else if (!_isLightningStriking && !IsTouchingLightSource())
+            _fadeTween = GetComponent<SpriteRenderer>().DOFade(0, _fadeDuration);
+    }
+
+    public void ChangeVisibilityTweenless(bool visibility)
+    {
+        if (visibility)
+            ChangeAlpha(1f);
+        else if (!IsTouchingLightSource())
+            ChangeAlpha(0f);
+    }
+
+    private void ChangeAlpha(float alpha)
+    {
+        if (_fadeTween != null)
+            _fadeTween.Kill();
+        Color color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, alpha);
+        _sr.color = color;
     }
 
     private void OnLightningStrikeStart()
     {
-        ChangeVisibility(true);
-        _isLightningStriking = true;
+        StartCoroutine(LightningCoroutine());
+
+        IEnumerator LightningCoroutine()
+        {
+            _isLightningStriking = true;
+            foreach (var flicker in _flickers)
+            {
+                yield return new WaitForSeconds(flicker.Item1);
+                ChangeVisibilityTweenless(false);
+                yield return new WaitForSeconds(flicker.Item2);
+                ChangeVisibility(true);
+            }
+            _isLightningStriking = false;
+            ChangeVisibility(false);
+        }
     }
 
-    private void OnLightningStrikeEnd()
+
+    private bool IsTouchingLightSource()
     {
-        _isLightningStriking = false;
-        ChangeVisibility(false);
-        var colliders = new List<Collider2D>();
+        colliders = new List<Collider2D>();
         GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
         if (colliders.Count == 0)
-            return;
+            return false;
         foreach (var collider in colliders)
         {
             if (collider.TryGetComponent<LightSource>(out LightSource lightSource))
             {
-                ChangeVisibility(true);
-                return;
+                return true;
             }
         }
+        return false;
     }
 }

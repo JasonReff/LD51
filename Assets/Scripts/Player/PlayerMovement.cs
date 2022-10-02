@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed = .05f;
-
+    [SerializeField] private Animator _animator;
     private Rigidbody2D rb;
     private Vector2 movement;
     // Start is called before the first frame update
@@ -20,10 +20,16 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        UpdateAnimation();
     }
 
     private void FixedUpdate()
     {
         rb.velocity = movement * playerSpeed;
+    }
+
+    private void UpdateAnimation()
+    {
+        _animator.SetBool("Moving", movement.magnitude > 0);
     }
 }
