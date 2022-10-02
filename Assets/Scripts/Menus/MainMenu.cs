@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
 
     public string[] levels;
+    public Image Background;
+    public Sprite OpenDoorBackground;
+    public GameObject title;
     public GameObject levelSelect;
     public GameObject optionsMenu;
     public GameObject credits;
+    public GameObject fontCredits;
     public GameObject instructions;
 
     // Start is called before the first frame update
@@ -31,7 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenDoor()
     {
-
+        Background.sprite = OpenDoorBackground;
     }
 
     public void HideSubmenus() {
@@ -39,6 +44,8 @@ public class MainMenu : MonoBehaviour
         optionsMenu.SetActive(false);
         instructions.SetActive(false);
         credits.SetActive(false);
+        fontCredits.SetActive(false);
+        title.SetActive(true);
     }
 
     public void LoadLevel(int number)
@@ -72,6 +79,7 @@ public class MainMenu : MonoBehaviour
         if (!instructions.activeInHierarchy) {
             LightningStrike();
             HideSubmenus();
+            title.SetActive(false);
             instructions.SetActive(true);
         }
 
@@ -81,7 +89,9 @@ public class MainMenu : MonoBehaviour
         if (!credits.activeInHierarchy) {
             LightningStrike();
             HideSubmenus();
+            title.SetActive(false);
             credits.SetActive(true);
+            fontCredits.SetActive(true);
         }
     }
 }
