@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScenes/Andrew/test_level_2.unity
     guid: d442a0668c932fe448d91671d5aeb510
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelSelection.unity
     guid: aea85b4b6a29ac0499ab23a7a6b82960
   - enabled: 1
@@ -32,4 +32,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScenes/Level1.unity
     guid: f339167253cca21469f603d9065ef33b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2-1.unity
+    guid: c51c3a03c8cefa94f820fd828d7f4b7a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2-2.unity
+    guid: 4e6867e5dba4db444975b9c77ca4be3e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2-3.unity
+    guid: 426b54a92099bd341a5d07d279a1246e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3-1.unity
+    guid: b3e9f3cd5bd01a04a843068440fea744
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3-2.unity
+    guid: b1850e07eeedc7b4fba14c165fb07261
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3-3.unity
+    guid: d0ad601b6aafb844082e2e7c85dc05a3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4-1.unity
+    guid: 08f9cde1e9957e04cbdbde3bb3fdb25c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4-2.unity
+    guid: c58401405978ae14ba6a5584c5599ee2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4-3.unity
+    guid: e38c6a01e83ab3d43b8a35f5fdfa381c
   m_configObjects: {}
