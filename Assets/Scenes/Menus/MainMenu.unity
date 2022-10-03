@@ -1738,32 +1738,34 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Programming:
 
-    Jason
+    Jason Reff
 
-    Yoon
+    Yoon Joon So
 
-    Andrew
+    Andrew Calvarese
 
 
     Art:
 
     Val
+    Yost
 
-    Paul
+    Paul Avallone
 
-    Sam
+    Sam Finston
 
 
     Design:
 
-    Paul
+    Paul Avallone
 
     Andrew
+    Calvarese
 
 
     Sound:
 
-    Max'
+    Max Reff'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ae7499131e44b6499b7ef198c3d5c3d, type: 2}
   m_sharedMaterial: {fileID: 7428288886056554679, guid: 7ae7499131e44b6499b7ef198c3d5c3d, type: 2}
@@ -4530,7 +4532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1569509671
 RectTransform:
   m_ObjectHideFlags: 0
