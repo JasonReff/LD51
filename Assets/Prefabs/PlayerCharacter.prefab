@@ -316,6 +316,7 @@ MonoBehaviour:
   _ghostRiseDistance: 1
   _tombstoneDuration: 1.4
   _deathSound: {fileID: 8300000, guid: bc3b63eef492e2342bac078b4dcb8653, type: 3}
+  _selectedCharacter: {fileID: 11400000, guid: 86037dc3ea3992c47bd40276ded3dc70, type: 2}
 --- !u!70 &3847326341258897443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -363,7 +364,7 @@ Animator:
   m_GameObject: {fileID: 4030473611404702415}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99481e31171fadc418208190deddce80, type: 2}
+  m_Controller: {fileID: 22100000, guid: 1ee46bbd36c1bc141b09d72d7f149911, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
