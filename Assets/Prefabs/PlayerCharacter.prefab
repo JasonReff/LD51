@@ -312,16 +312,10 @@ MonoBehaviour:
   _ghost: {fileID: 6223520436794146202}
   _tombstone: {fileID: 5458383260461551278}
   _deathDuration: 3
-<<<<<<< HEAD
-  _ghostRiseDuration: 1
-  _ghostRiseDistance: 1
-  _tombstoneDuration: 1
-=======
   _ghostRiseDuration: 1.4
   _ghostRiseDistance: 1
   _tombstoneDuration: 1.4
   _deathSound: {fileID: 8300000, guid: bc3b63eef492e2342bac078b4dcb8653, type: 3}
->>>>>>> master
 --- !u!70 &3847326341258897443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
