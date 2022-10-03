@@ -6,22 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 00040505565459080e560f2716220644104f4a7a2a2c7e62752d4a35b6e26339
+      value: 025700040457515f0b0b5f7b15745a44444e1b737f7e746375794e37b6b56c3c
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 53540d5e500d085f0f575b7a467b0f44464e4d2e2a792461792d1f63b4b8603e
+      value: 0109055155000a095d5f547147255a4410164179292c71312e2f1e31e4b9656b
       flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 0102515f03060a5f580c087241220f44174f4c797c7e7e6479791b36e3b7606c
+      value: 00040505565459080e560f2716220644104f4a7a2a2c7e62752d4a35b6e26339
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 5754025e53020c0e090c0d7614210b44424e4f7f2e7125677a2a1c67e0e5673d
+      value: 0102515f03060a5f580c087241220f44174f4c797c7e7e6479791b36e3b7606c
       flags: 0
     RecentlyUsedSceneGuid-4:
-      value: 57030204500108025f5e557b12270c4447164d2e7c7f22627a701c62b0b4623d
+      value: 5754025e53020c0e090c0d7614210b44424e4f7f2e7125677a2a1c67e0e5673d
       flags: 0
     RecentlyUsedSceneGuid-5:
+      value: 57030204500108025f5e557b12270c4447164d2e7c7f22627a701c62b0b4623d
+      flags: 0
+    RecentlyUsedSceneGuid-6:
       value: 01000c535550590c080b092613745d441015197b782b7766782f1f63b5b26269
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 53540d5e500d085f0f575b7a467b0f44464e4d2e2a792461792d1f63b4b8603e
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 0502075f54035e09585d0f2111710e44404e1e7c7c7b22697d7f4836e4b3673a
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 065404005d57515d585b592649775944454e4e78757b22347c714c35b5e3366e
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
@@ -31,8 +43,8 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 3
-  m_StandbyImportWorkerCount: 2
+  m_DesiredImportWorkerCount: 1
+  m_StandbyImportWorkerCount: 1
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1

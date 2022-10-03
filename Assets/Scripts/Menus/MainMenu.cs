@@ -30,6 +30,13 @@ public class MainMenu : MonoBehaviour
     public float timerDuration;
     public float currentTime;
 
+    //Effects
+    [SerializeField] private ThunderManager _thunder;
+
+    //Settings
+    [SerializeField] private CameraSettingsData _cameraSettings;
+    [SerializeField] private CameraSettingsReader _cameraSettingsReader;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +44,9 @@ public class MainMenu : MonoBehaviour
         bgDefaultColor = background.color;
         cameraDefaultColor = cam.backgroundColor;
         currentTime = timerDuration;
+        post = _cameraSettings.PostProcessing;
+        if (post) toggleText.text = "on";
+        else toggleText.text = "off";
     }
 
     // Update is called once per frame
@@ -69,6 +79,7 @@ public class MainMenu : MonoBehaviour
         cam.backgroundColor = Color.white;
         background.color = Color.white;
         timerActive = true;
+        _thunder.PlayThunder();
     }
 
     public void OpenDoor()
@@ -105,6 +116,8 @@ public class MainMenu : MonoBehaviour
         post = !post;
         if (post) toggleText.text = "on";
         else toggleText.text = "off";
+        _cameraSettings.PostProcessing = post;
+        _cameraSettingsReader.UpdateSettings();
     }
 
     public void DisplayLevelSelect()

@@ -22,16 +22,19 @@ public class SettingsManager : MonoBehaviour
     public void SetMusicVolume(float value)
     {
         _soundSettings.MusicVolume = value;
+        AudioManager.SetMusicVolume(value);
     }
 
     public void SetEffectsVolume(float value)
     {
         _soundSettings.EffectsVolume = value;
+        AudioManager.SetEffectsVolume(value);
     }
 
     public void SetMasterVolume(float value)
     {
         _soundSettings.MasterVolume = value;
+        AudioManager.SetMasterVolume(value);
     }
 
     public void CycleCharacterUp()

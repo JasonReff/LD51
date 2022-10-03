@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9dfbaa9dbe25ac4bb26ec03faff53d7, type: 3}
-  m_Name: SoundSettings
+  m_Script: {fileID: 11500000, guid: f6ee7e20766c1704692e6a04a8b42eb6, type: 3}
+  m_Name: CameraSettingsData
   m_EditorClassIdentifier: 
-  MusicVolume: 0.75
-  EffectsVolume: 0.75
-  MasterVolume: 0.75
+  PostProcessing: 1
