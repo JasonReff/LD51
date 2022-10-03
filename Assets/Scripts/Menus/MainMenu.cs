@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -20,11 +21,15 @@ public class MainMenu : MonoBehaviour
     public GameObject credits;
     public GameObject fontCredits;
     public GameObject instructions;
+    public TMP_Text toggleText;
+
+    public bool post = true;
 
     // timing
     private bool timerActive = false;
     public float timerDuration;
     public float currentTime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +98,13 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(levels[number]);
 
         }
+    }
+
+    public void TogglePostProc()
+    {
+        post = !post;
+        if (post) toggleText.text = "on";
+        else toggleText.text = "off";
     }
 
     public void DisplayLevelSelect()
