@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private SpriteRenderer _ghost, _tombstone;
     [SerializeField] private float _deathDuration = 3f, _ghostRiseDuration = 1f, _ghostRiseDistance = 1f, _tombstoneDuration = 1f;
     [SerializeField] private AudioClip _deathSound;
+    [SerializeField] private CharacterSelectData _selectedCharacter;
 
     private void Awake()
     {
@@ -24,6 +25,12 @@ public class PlayerManager : MonoBehaviour
     private void OnDisable()
     {
         DamageCharacter.OnPlayerDamaged -= PlayerDeath;
+    }
+
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().sprite = _selectedCharacter.SelectedCharacter.CharacterSprite;
+        GetComponent<Animator>().runtimeAnimatorController = _selectedCharacter.SelectedCharacter.CharacterAnimatorController;
     }
 
     private void PlayerDeath()
