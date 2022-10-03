@@ -87,6 +87,7 @@ public class MainMenu : MonoBehaviour
         IEnumerator LoadLevelCoroutine()
         {
             LightningStrike();
+            HideSubmenus();
             OpenDoor();
             yield return new WaitForSeconds(timerDuration / 60);
             SceneManager.LoadScene(levels[number]);
