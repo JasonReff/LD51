@@ -18,7 +18,6 @@ public class AxeEnvironment : MonoBehaviour
             CloseAxe();
             reset = false;
         }
-        print("enter trigger, reset: " + reset);
     }
 
     public void ExitTrigger()
@@ -30,12 +29,10 @@ public class AxeEnvironment : MonoBehaviour
 
         reset = true;
 
-        print("exit trigger, reset: " + reset);
     }
 
     void OpenAxe()
     {
-        print("open axe");
         foreach(var openAxe in openAxes)
         {
             openAxe.SetActive(true);
@@ -45,7 +42,6 @@ public class AxeEnvironment : MonoBehaviour
     }
     void CloseAxe()
     {
-        print("close axe");
         foreach (var openAxe in openAxes)
         {
             openAxe.SetActive(false);
