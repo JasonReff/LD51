@@ -12,7 +12,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private CameraSettingsData _cameraSettings;
     private int _characterDataIndex;
 
-    private void Awake()
+    private void Start()
     {
         _musicSlider.value = AudioManager.MusicVolume();
         _effectsSlider.value = AudioManager.EffectsVolume();
