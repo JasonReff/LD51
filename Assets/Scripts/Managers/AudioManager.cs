@@ -5,7 +5,15 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
 {
     [SerializeField] private AudioSource _gameMusic, _ghostMusic, _pauseMusic, _effects;
     [SerializeField] private float _masterVolume, _musicVolume, _effectsVolume;
+    [SerializeField] private SoundSettingsData _soundSettings;
     private static float _minPitch = 0.9f, _maxpitch = 1.1f, _fadeDuration = 0.25f;
+
+    private void Start()
+    {
+        _masterVolume = _soundSettings.MasterVolume;
+        SetMusicVolume(_soundSettings.MusicVolume);
+        SetEffectsVolume(_soundSettings.EffectsVolume);
+    }
 
     public static void PlaySoundEffect(AudioClip audioClip)
     {
@@ -16,7 +24,6 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
 
     public static void SetMusicVolume(float volume)
     {
-        Instance._musicVolume = volume;
         Instance._gameMusic.volume = volume * Instance._masterVolume;
         Instance._pauseMusic.volume = volume * Instance._masterVolume;
     }
@@ -24,7 +31,7 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
     public static void SwapMusic()
     {
         Instance._gameMusic.DOFade(0f, _fadeDuration);
-        Instance._ghostMusic.DOFade(1f, _fadeDuration);
+        Instance._ghostMusic.DOFade(1f * Instance._musicVolume * Instance._masterVolume, _fadeDuration);
     }
 
     public static void PauseGameMusic()
@@ -41,7 +48,6 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
 
     public static void SetEffectsVolume(float volume)
     {
-        Instance._effectsVolume = volume;
         Instance._effects.volume = volume * Instance._masterVolume;
     }
 
