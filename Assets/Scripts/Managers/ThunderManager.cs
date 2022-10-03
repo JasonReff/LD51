@@ -17,7 +17,7 @@ public class ThunderManager : SingletonMonobehaviour<ThunderManager>
         LightningStrikeManager.OnLightningStrikeStart -= PlayThunder;
     }
 
-    private void PlayThunder()
+    public void PlayThunder()
     {
         StartCoroutine(ThunderCoroutine());
 

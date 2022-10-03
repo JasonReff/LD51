@@ -56,6 +56,7 @@ MonoBehaviour:
   _masterVolume: 1
   _musicVolume: 1
   _effectsVolume: 1
+  _soundSettings: {fileID: 11400000, guid: 7556ae85685a8d7489a71cf0c880baed, type: 2}
 --- !u!82 &5406451906196659757
 AudioSource:
   m_ObjectHideFlags: 0

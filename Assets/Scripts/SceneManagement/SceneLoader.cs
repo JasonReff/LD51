@@ -17,6 +17,11 @@ public class SceneLoader : MonoBehaviour
             Instance = this;
     }
 
+    public void LoadScene(string sceneName)
+    {
+        LoadScene(sceneName, false);
+    }
+
     public void LoadScene(string sceneName, bool async = false)
     {
         if (async)
@@ -24,7 +29,6 @@ public class SceneLoader : MonoBehaviour
         else
             SceneManager.LoadScene(sceneName);
     }
-
     IEnumerator LoadSceneAsync(string sceneName)
     {
         canvas.enabled = true;

@@ -8,6 +8,8 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private SoundSettingsData _soundSettings;
     [SerializeField] private List<CharacterData> _characterDatas;
     [SerializeField] private CharacterSelectData _characterSelectData;
+    [SerializeField] private Image _characterDisplay;
+    [SerializeField] private CameraSettingsData _cameraSettings;
     private int _characterDataIndex;
 
     private void Awake()
@@ -20,16 +22,19 @@ public class SettingsManager : MonoBehaviour
     public void SetMusicVolume(float value)
     {
         _soundSettings.MusicVolume = value;
+        AudioManager.SetMusicVolume(value);
     }
 
     public void SetEffectsVolume(float value)
     {
         _soundSettings.EffectsVolume = value;
+        AudioManager.SetEffectsVolume(value);
     }
 
     public void SetMasterVolume(float value)
     {
         _soundSettings.MasterVolume = value;
+        AudioManager.SetMasterVolume(value);
     }
 
     public void CycleCharacterUp()
@@ -45,11 +50,18 @@ public class SettingsManager : MonoBehaviour
         _characterDataIndex--;
         if (_characterDataIndex < 0)
             _characterDataIndex = _characterDatas.Count - 1;
-
+        UpdateCharacter(_characterDataIndex);
     }
 
     private void UpdateCharacter(int characterIndex)
     {
-        var characterData = _characterDatas[_characterDataIndex];
+        var characterData = _characterDatas[characterIndex];
+        _characterDisplay.sprite = characterData.CharacterSprite;
+        _characterSelectData.SelectedCharacter = characterData;
+    }
+
+    public void TogglePostProcessing()
+    {
+        _cameraSettings.PostProcessing = !_cameraSettings.PostProcessing;
     }
 }
