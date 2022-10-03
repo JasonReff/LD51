@@ -145,4 +145,9 @@ public class MainMenu : MonoBehaviour
             fontCredits.SetActive(true);
         }
     }
+
+    public void ChangeCharacter(bool right)
+    {
+        // change character
+    }
 }
