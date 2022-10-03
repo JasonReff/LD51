@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 371840125030450571, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -63,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 371840125030450613, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_AgentTypeID
       value: -334000983
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693734546468755774, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8654247563139196007, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Controller
