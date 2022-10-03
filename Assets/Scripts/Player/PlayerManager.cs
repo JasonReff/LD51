@@ -9,10 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Animator _tombstoneAnimator;
     [SerializeField] private SpriteRenderer _ghost, _tombstone;
     [SerializeField] private float _deathDuration = 3f, _ghostRiseDuration = 1f, _ghostRiseDistance = 1f, _tombstoneDuration = 1f;
-<<<<<<< HEAD
-=======
     [SerializeField] private AudioClip _deathSound;
->>>>>>> master
 
     private void Awake()
     {
@@ -32,19 +29,12 @@ public class PlayerManager : MonoBehaviour
     private void PlayerDeath()
     {
         StartCoroutine(GhostAnimation());
-<<<<<<< HEAD
         SceneLoader.Instance.ReloadScene(_deathDuration);
-=======
-        //SceneLoader.Instance.ReloadScene(_deathDuration);
->>>>>>> master
     }
 
     private IEnumerator GhostAnimation()
     {
-<<<<<<< HEAD
-=======
         AudioManager.PlaySoundEffect(_deathSound);
->>>>>>> master
         Time.timeScale = 0f;
         GetComponent<SpriteRenderer>().enabled = false;
         _tombstone.enabled = true;
