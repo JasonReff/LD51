@@ -37,7 +37,9 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
     public static void PauseGameMusic()
     {
         Instance._gameMusic.Pause();
-        Instance._pauseMusic.UnPause();
+        if (Instance._pauseMusic.isPlaying)
+            Instance._pauseMusic.UnPause();
+        else Instance._pauseMusic.Play();
     }
 
     public static void UnpauseGameMusic()

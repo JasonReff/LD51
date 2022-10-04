@@ -51,7 +51,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   _gameMusic: {fileID: 5406451906196659757}
   _ghostMusic: {fileID: 5406451906196659756}
-  _pauseMusic: {fileID: 5406451906196659756}
+  _pauseMusic: {fileID: 5890163243551355649}
   _effects: {fileID: 5406451906196659759}
   _masterVolume: 1
   _musicVolume: 1
@@ -259,11 +259,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0
+  m_audioClip: {fileID: 8300000, guid: a571820ee3db4e94e8e52cca49177a0b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

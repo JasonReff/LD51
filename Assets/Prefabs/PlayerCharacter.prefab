@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8971861992762751485}
   - component: {fileID: 6223520436794146202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8933031105708291424}
   - component: {fileID: 5458383260461551278}
   - component: {fileID: 8384496776515025281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tombstone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4030473611404702453}
   - component: {fileID: 670405945270473841}
   - component: {fileID: 997193896146454833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 6400870663230930215}
   - component: {fileID: 6377173605183651417}
   - component: {fileID: 5149376763611639663}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LightSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}

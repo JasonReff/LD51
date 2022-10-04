@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class NextSceneDoor : MonoBehaviour
 {
     [SerializeField] private string _sceneName;
+    private float _minimumDuration = 1f;
     public void MoveToScene()
     {
-        SceneLoader.Instance.LoadScene(_sceneName, true);
+        Time.timeScale = 1;
+        SceneLoader.Instance.LoadScene(_sceneName, _minimumDuration);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

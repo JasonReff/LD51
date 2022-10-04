@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public GameObject fontCredits;
     public GameObject instructions;
     public TMP_Text toggleText;
+    public SceneLoader SceneLoader;
 
     public bool post = true;
 
@@ -96,7 +97,7 @@ public class MainMenu : MonoBehaviour
         title.SetActive(true);
     }
 
-    public void LoadLevel(int number)
+    public void LoadLevel(string levelName)
     {
         StartCoroutine(LoadLevelCoroutine());
 
@@ -106,7 +107,7 @@ public class MainMenu : MonoBehaviour
             HideSubmenus();
             OpenDoor();
             yield return new WaitForSeconds(timerDuration / 60);
-            SceneManager.LoadScene(levels[number]);
+            SceneLoader.LoadScene(levelName);
 
         }
     }

@@ -108,7 +108,7 @@ MonoBehaviour:
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  _detectsPlayer: 1
+  _detectsPlayer: 0
   _reverseOnFinish: 0
   _detectsPlayerThroughWall: 0
 --- !u!61 &840529567086136057

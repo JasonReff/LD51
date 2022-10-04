@@ -17,9 +17,20 @@ public class SceneLoader : MonoBehaviour
             Instance = this;
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void LoadScene(string sceneName)
     {
         LoadScene(sceneName, false);
+    }
+
+    public void LoadScene(string sceneName, float minimumDuration)
+    {
+        Time.timeScale = 1;
+        StartCoroutine(LoadSceneAsync(sceneName, minimumDuration));
     }
 
     public void LoadScene(string sceneName, bool async = false)
@@ -42,31 +53,31 @@ public class SceneLoader : MonoBehaviour
         canvas.enabled = false;
     }
 
-    IEnumerator LoadSceneAsync(string sceneName, float minimumDuration)
+    IEnumerator LoadSceneAsync(string sceneName, float minimumDuration, bool showCanvas = true)
     {
-        canvas.enabled = true;
+        if (showCanvas)
+            canvas.enabled = true;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        asyncLoad.allowSceneActivation = false;
         float time = 0;
         while (!asyncLoad.isDone && time <= minimumDuration)
         {
             time += Time.fixedUnscaledDeltaTime;
             yield return null;
         }
-
+        asyncLoad.allowSceneActivation = true;
         canvas.enabled = false;
     }
 
     public void ReloadScene(bool async)
     {
-        Time.timeScale = 1;
         string currentScene = SceneManager.GetActiveScene().name;
         LoadScene(currentScene, async);
     }
 
     public void ReloadScene(float minimumDuration)
     {
-        Time.timeScale = 1;
         string currentScene = SceneManager.GetActiveScene().name;
-        StartCoroutine(LoadSceneAsync(currentScene, minimumDuration));
+        StartCoroutine(LoadSceneAsync(currentScene, minimumDuration, false));
     }
 }
