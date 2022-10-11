@@ -29,7 +29,6 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(string sceneName, float minimumDuration)
     {
-        Time.timeScale = 1;
         StartCoroutine(LoadSceneAsync(sceneName, minimumDuration));
     }
 

@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4138308799417386686
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860052, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810422148140860053, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2044377213, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+    - target: {fileID: 7810422148140860057, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+      propertyPath: m_Name
+      value: Wall5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+--- !u!1 &6127719462639633447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7810422148140860057, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
+  m_PrefabInstance: {fileID: 4138308799417386686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6566785395194897337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127719462639633447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c37ca7ebd496ee4f87ed6a053c52130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wallSprites:
+  - {fileID: -601136931, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: 1480348691, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: 679293857, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: -1091174425, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: 1155034296, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: -267140109, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: -371479399, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: -718073230, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  - {fileID: 968032584, guid: 6a12640ae15db744f8076949635f9096, type: 3}
+  folderPath: Assets/Prefabs/Tiles/Wall5

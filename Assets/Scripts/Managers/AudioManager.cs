@@ -17,6 +17,8 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
 
     public static void PlaySoundEffect(AudioClip audioClip)
     {
+        if (audioClip == null)
+            return;
         float randomPitch = Random.Range(_minPitch, _maxpitch);
         Instance._effects.pitch = randomPitch;
         Instance._effects.PlayOneShot(audioClip);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2366921228504907748}
   - component: {fileID: 5558732610092496875}
   - component: {fileID: -2068028246876242194}
+  - component: {fileID: -4438588168690503292}
   m_Layer: 0
   m_Name: Floor4
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_OverrideArea: 1
   m_Area: 0
   m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
+  m_AffectedAgents: 00000000a98c17ecf46d2d58
 --- !u!61 &5558732610092496875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,3 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5042f04e49909449bc6c91f8c0c304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4438588168690503292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810422148140860057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4548c3ddb7ee0479976e945db6800f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 5

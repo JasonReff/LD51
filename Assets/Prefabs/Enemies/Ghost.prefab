@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: -334000983
       objectReference: {fileID: 0}
+    - target: {fileID: 371840125030450613, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7693734546468755774, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Layer
       value: 6

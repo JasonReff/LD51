@@ -16,6 +16,16 @@ public class NavMeshManager : MonoBehaviour
 
     public static NavMeshManager Instance { get; private set; }
 
+    private void OnEnable()
+    {
+        DestroyWithKey.OnWallDestroyed += OnWallsChanged;
+    }
+
+    private void OnDisable()
+    {
+        DestroyWithKey.OnWallDestroyed -= OnWallsChanged;
+    }
+
     private void Awake()
     {
         if (Instance)
@@ -27,5 +37,18 @@ public class NavMeshManager : MonoBehaviour
     public void RebakeHumanoidMesh()
     {
         humanoidMesh.BuildNavMesh();
+    }
+
+    private void OnWallsChanged()
+    {
+        humanoidMesh.BuildNavMesh();
+        knightMesh.BuildNavMesh();
+    }
+
+    public void RebakeAllMeshes()
+    {
+        humanoidMesh.BuildNavMesh();
+        ghostMesh.BuildNavMesh();
+        knightMesh.BuildNavMesh();
     }
 }

@@ -205,6 +205,8 @@ GameObject:
   - component: {fileID: 4030473611404702453}
   - component: {fileID: 670405945270473841}
   - component: {fileID: 997193896146454833}
+  - component: {fileID: 3578321047728814444}
+  - component: {fileID: 6953310589258831528}
   m_Layer: 7
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -387,6 +389,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 4030473611404702453}
+--- !u!114 &3578321047728814444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030473611404702415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ad3ba7508c6c247a870c7bdf2a4bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trailPrefab: {fileID: 1250202248733388287, guid: 39f9eb2f799d5734088fa9816bfb1f23, type: 3}
+  _spawnRate: 1
+--- !u!208 &6953310589258831528
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030473611404702415}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.00001, y: 0.00001, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7544774418272994172
 GameObject:
   m_ObjectHideFlags: 0

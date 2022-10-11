@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e0e3342ad53a54d82f37d64f594f61, type: 3}
   m_Name: BestTimesData
   m_EditorClassIdentifier: 
+  _defaultTime: 120
   _stageDatas:
   - StageName: Level1-1
-    BestTime: 45.798424
+    BestTime: 120
   - StageName: Level1-2
     BestTime: 120
   - StageName: Level1-3
@@ -22,4 +23,24 @@ MonoBehaviour:
   - StageName: Level2-1
     BestTime: 120
   - StageName: Level2-2
+    BestTime: 120
+  - StageName: Level2-3
+    BestTime: 120
+  - StageName: Level3-1
+    BestTime: 120
+  - StageName: Level3-2
+    BestTime: 120
+  - StageName: Level3-3
+    BestTime: 120
+  - StageName: Level4-1
+    BestTime: 120
+  - StageName: Level4-2
+    BestTime: 120
+  - StageName: Level4-3
+    BestTime: 120
+  - StageName: Level5-1
+    BestTime: 120
+  - StageName: Level5-2
+    BestTime: 120
+  - StageName: Level5-3
     BestTime: 120
