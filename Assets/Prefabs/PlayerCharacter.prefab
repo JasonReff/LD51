@@ -205,11 +205,8 @@ GameObject:
   - component: {fileID: 4030473611404702453}
   - component: {fileID: 670405945270473841}
   - component: {fileID: 997193896146454833}
-<<<<<<< HEAD
-=======
   - component: {fileID: 3578321047728814444}
   - component: {fileID: 6953310589258831528}
->>>>>>> Jason
   m_Layer: 7
   m_Name: PlayerCharacter
   m_TagString: Untagged

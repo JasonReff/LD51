@@ -1177,24 +1177,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 4181516797908082960, guid: 14b65bff39c9ce54890204b1e8854844, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
->>>>>>> Jason
     - target: {fileID: 5532127082858275589, guid: 14b65bff39c9ce54890204b1e8854844, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 7564494032793833270, guid: 14b65bff39c9ce54890204b1e8854844, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
->>>>>>> Jason
     - target: {fileID: 8191074124869362139, guid: 14b65bff39c9ce54890204b1e8854844, type: 3}
       propertyPath: m_Name
       value: SceneLoader

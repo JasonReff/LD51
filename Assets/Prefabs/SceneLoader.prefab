@@ -183,8 +183,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-<<<<<<< HEAD
-=======
 --- !u!1 &1943963109430227578
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +318,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> Jason
 --- !u!1 &2362819577552962604
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +451,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< HEAD
-=======
 --- !u!1 &2567463653312811368
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +586,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> Jason
 --- !u!1 &3362807107981537940
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,8 +707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseCanvas: {fileID: 2923887622685698818}
-<<<<<<< HEAD
-=======
 --- !u!1 &3662535358357230241
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +967,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> Jason
 --- !u!1 &5532127082858275589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,8 +1034,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
-<<<<<<< HEAD
-=======
 --- !u!1 &5811148180417562152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1110,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
->>>>>>> Jason
 --- !u!1 &6221778085448892512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,8 +1319,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< HEAD
-=======
 --- !u!1 &7183928378435037958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,7 +1539,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
->>>>>>> Jason
 --- !u!1 &7987376643573837787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,12 +1705,9 @@ Transform:
   - {fileID: 4138016602261841872}
   - {fileID: 4441142106302154379}
   - {fileID: 3345055047135979422}
-<<<<<<< HEAD
-=======
   - {fileID: 1598778638320562807}
   - {fileID: 1369657385791694054}
   - {fileID: 3162988206135195550}
->>>>>>> Jason
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1773,10 +1755,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-<<<<<<< HEAD
-=======
   - {fileID: 2949400563520647903}
->>>>>>> Jason
   - {fileID: 7192729353232629830}
   - {fileID: 4653002145940454902}
   - {fileID: 3776060239202622657}
@@ -1806,11 +1785,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-<<<<<<< HEAD
-  m_AdditionalShaderChannelsFlag: 25
-=======
   m_AdditionalShaderChannelsFlag: 1
->>>>>>> Jason
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
