@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeDuration: 4
   _destructionDelay: 0.1
+  _doScale: 1
 --- !u!95 &7943651274968028298
 Animator:
   serializedVersion: 4

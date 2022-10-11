@@ -131,6 +131,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3043819702706551526}
   m_SourcePrefab: {fileID: 100100000, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+--- !u!114 &6638143070578523482 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 371840125030450615, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+  m_PrefabInstance: {fileID: 6428432636475144429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638143070578523494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38957ba0f83ae747a16677d3dd3362c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6638143070578523484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 371840125030450609, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
@@ -155,3 +166,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trailPrefab: {fileID: 1250202248733388287, guid: 5a85b884d9261004db1fbd835cf835fe, type: 3}
   _spawnRate: 0.25
+  _trailPriority: 0
+  _enemy: {fileID: 6638143070578523482}

@@ -32,4 +32,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator.SetBool("Moving", movement.magnitude > 0);
     }
+
+    public void SetSpeed(float speed)
+    {
+        playerSpeed = speed;
+    }
 }

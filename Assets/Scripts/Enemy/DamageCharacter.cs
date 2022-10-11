@@ -11,4 +11,9 @@ public class DamageCharacter : MonoBehaviour
             OnPlayerDamaged?.Invoke();
         }
     }
+
+    public void CharacterTakesDamage()
+    {
+        OnPlayerDamaged?.Invoke();
+    }
 }
