@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 997193896146454833}
   - component: {fileID: 3578321047728814444}
   - component: {fileID: 6953310589258831528}
+  - component: {fileID: 1429204822690915640}
   m_Layer: 7
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -298,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   _animator: {fileID: 670405945270473841}
+  IsDashing: 0
 --- !u!114 &4030473611404702411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e30781543760d242b8c7ca80d7c1774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityController: {fileID: 1429204822690915640}
   _tombstoneAnimator: {fileID: 8384496776515025281}
+  _player: {fileID: 4030473611404702408}
   _ghost: {fileID: 6223520436794146202}
   _tombstone: {fileID: 5458383260461551278}
   _deathDuration: 3
@@ -403,6 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trailPrefab: {fileID: 1250202248733388287, guid: 39f9eb2f799d5734088fa9816bfb1f23, type: 3}
   _spawnRate: 1
+  _trailPriority: 0
+  _enemy: {fileID: 0}
 --- !u!208 &6953310589258831528
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -419,6 +425,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1429204822690915640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030473611404702415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5cbe1b6c3bfe040b180c28cca051d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ability: {fileID: 0}
 --- !u!1 &7544774418272994172
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
     private Rigidbody2D rb;
     private Vector2 movement;
+    public bool IsDashing;
+
+    public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
+
     // Start is called before the first frame update
     void Start()
     {

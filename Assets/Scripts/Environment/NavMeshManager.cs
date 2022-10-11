@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NavMeshManager : MonoBehaviour
 {
+    [SerializeField] private List<NavMeshSurface2d> AllMeshes;
     [SerializeField]
     NavMeshSurface2d humanoidMesh;
 
@@ -47,8 +48,7 @@ public class NavMeshManager : MonoBehaviour
 
     public void RebakeAllMeshes()
     {
-        humanoidMesh.BuildNavMesh();
-        ghostMesh.BuildNavMesh();
-        knightMesh.BuildNavMesh();
+        foreach (var mesh in AllMeshes)
+            mesh.BuildNavMesh();
     }
 }

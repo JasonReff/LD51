@@ -10,7 +10,8 @@ public class FloorMovementModifier : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerMovement playerMovement))
         {
-            playerMovement.SetSpeed(_moveSpeed);
+            if (!playerMovement.IsDashing)
+                playerMovement.SetSpeed(_moveSpeed);
         }
     }
 }

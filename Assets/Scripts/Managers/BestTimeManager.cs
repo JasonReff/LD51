@@ -3,12 +3,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class BestTimeManager : MonoBehaviour
+public class BestTimeManager : SingletonMonobehaviour<BestTimeManager>
 {
     [SerializeField] private float _time = 0f, _bestTime;
     [SerializeField] private BestTimesData _timeData;
     [SerializeField] private TextMeshProUGUI _currentTimeTextbox, _bestTimeTextbox;
     private string stageName;
+
+    public float CurrentTime { get => _time; set => _time = value; }
 
     private void OnEnable()
     {
@@ -34,7 +36,7 @@ public class BestTimeManager : MonoBehaviour
         _bestTimeTextbox.text = _bestTime.ToString();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _time += Time.deltaTime;
         if (_time < _bestTime)
