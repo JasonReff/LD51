@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterSprite: {fileID: -544652021, guid: 0af39c2003c88864ebf168268183653e, type: 3}
   CharacterAnimatorController: {fileID: 22100000, guid: 1ee46bbd36c1bc141b09d72d7f149911, type: 2}
+  Ability: {fileID: 11400000, guid: 853888101287e3f49aa13a8cc93238cf, type: 2}

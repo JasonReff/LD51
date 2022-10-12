@@ -19,7 +19,7 @@ public class PatrolEnemy : EnemyBase
     [SerializeField] private bool _runsFromPlayer;
     public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; }
     public bool ReverseOnFinish { get => _reverseOnFinish; }
-    public bool RunsFromPlayer { get => _runsFromPlayer; }
+    public bool RunsFromPlayer { get => _runsFromPlayer; set => _runsFromPlayer = value; }
     public event Action OnPatrolPointsChanged;
     public event Action OnWarp;
 

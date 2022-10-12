@@ -118,6 +118,7 @@ public class ChaseState : EnemyState
             _playerTransform = PlayerManager.Instance.transform;
         _stateMachine.Agent.SetDestination(_playerTransform.position);
         CheckForPatrolState();
+        CheckForAvoidState();
     }
 
     private void CheckForPatrolState()
@@ -126,6 +127,12 @@ public class ChaseState : EnemyState
         {
             _stateMachine.ChangeState(new PatrolState(_stateMachine));
         }
+    }
+
+    private void CheckForAvoidState()
+    {
+        if (_isPatrolEnemy && (_stateMachine as PatrolEnemy).RunsFromPlayer)
+            _stateMachine.ChangeState(new AvoidState(_stateMachine));
     }
 
     private bool IsPlayerOutsideVisionRange()
@@ -219,6 +226,7 @@ public class AvoidState : EnemyState
             _playerTransform = PlayerManager.Instance.transform;
         RunFromPlayer();
         CheckForPatrolState();
+        CheckForChaseState();
     }
 
     private void RunFromPlayer() 
@@ -234,6 +242,12 @@ public class AvoidState : EnemyState
         {
             _stateMachine.ChangeState(new PatrolState(_stateMachine));
         }
+    }
+    
+    private void CheckForChaseState()
+    {
+        if (_stateMachine is PatrolEnemy && !(_stateMachine as PatrolEnemy).RunsFromPlayer)
+            _stateMachine.ChangeState(new ChaseState(_stateMachine));
     }
 
     private bool IsPlayerOutsideVisionRange()

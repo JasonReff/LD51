@@ -8,7 +8,7 @@ public class EnemyTransformation : MonoBehaviour
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private float _vampireSpeed, _batSpeed;
     [SerializeField] private Animator _animator;
-    [SerializeField] private bool _isBat;
+    [SerializeField] protected bool _isBat;
 
     private void OnEnable()
     {
@@ -20,7 +20,7 @@ public class EnemyTransformation : MonoBehaviour
         LightningStrikeManager.OnLightningStrikeStart -= DoTransformation;
     }
 
-    private void DoTransformation()
+    protected virtual void DoTransformation()
     {
         _isBat = !_isBat;
         _animator.SetBool("BatForm", _isBat);

@@ -7,7 +7,7 @@ public class PlayerAbilityController : MonoBehaviour
 
     public void SetAbility(PlayerAbility ability)
     {
-        if (_ability == null)
+        if (ability == null)
             return;
         _ability = ability;
         _ability.Initialize(this);

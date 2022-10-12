@@ -10,19 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2366921228504907748, guid: 961099c8536f1c5429c4815fb14e2b9b, type: 3}
       propertyPath: m_AffectedAgents.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -2366921228504907748, guid: 961099c8536f1c5429c4815fb14e2b9b, type: 3}
       propertyPath: m_AffectedAgents.Array.data[0]
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2366921228504907748, guid: 961099c8536f1c5429c4815fb14e2b9b, type: 3}
       propertyPath: m_AffectedAgents.Array.data[1]
-      value: -1923039037
+      value: -334000983
       objectReference: {fileID: 0}
     - target: {fileID: -2366921228504907748, guid: 961099c8536f1c5429c4815fb14e2b9b, type: 3}
       propertyPath: m_AffectedAgents.Array.data[2]
-      value: -334000983
+      value: 1479372276
+      objectReference: {fileID: 0}
+    - target: {fileID: -2366921228504907748, guid: 961099c8536f1c5429c4815fb14e2b9b, type: 3}
+      propertyPath: m_AffectedAgents.Array.data[3]
+      value: -1923039037
       objectReference: {fileID: 0}
     - target: {fileID: 5461986562996634313, guid: 961099c8536f1c5429c4815fb14e2b9b, type: 3}
       propertyPath: _moveSpeed

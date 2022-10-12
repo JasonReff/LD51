@@ -82,7 +82,7 @@ public class ToggleLight : MonoBehaviour
         {
             if (collider.TryGetComponent<LightSource>(out LightSource lightSource))
             {
-                if (!lightSource.IsSnuffed)
+                if (!lightSource.IsSnuffed && lightSource.enabled == true)
                     return true;
             }
         }

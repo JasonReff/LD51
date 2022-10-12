@@ -83,6 +83,34 @@ MonoBehaviour:
   _isActivatable: 1
   _isActive: 0
   _lightSource: {fileID: 3539215906158240210}
+--- !u!114 &3352609110696942158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539215906158240208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0902c041c0581e948aa36fc37a061ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6570633143046143231}
+        m_TargetAssemblyTypeName: PlayerCheckpoint, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _playerOnly: 1
 --- !u!114 &3539215906158240210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3391550809864052715, guid: 8eb29835836211d4daa42696e0800dea, type: 3}

@@ -28,12 +28,4 @@ public class PlayerCheckpoint : MonoBehaviour
         _isActive = false;
         _lightSource.enabled = false;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out PlayerManager player))
-        {
-            Activate();
-        }
-    }
 }

@@ -24,6 +24,8 @@ public class LightSource : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_isSnuffed)
+            return;
         if (collision.TryGetComponent<ToggleLight>(out ToggleLight lightToggle))
         {
             lightToggle.ChangeVisibility(true);
