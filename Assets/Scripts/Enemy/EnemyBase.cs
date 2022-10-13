@@ -70,7 +70,7 @@ public class EnemyState
 
     protected void AttemptDetectPlayer()
     {
-        if (!_detectsPlayer)
+        if (!_detectsPlayer | !PlayerManager.Instance.IsVisibleToEnemies)
             return;
         if (_playerTransform == null)
             _playerTransform = PlayerManager.Instance.transform;
@@ -137,6 +137,8 @@ public class ChaseState : EnemyState
 
     private bool IsPlayerOutsideVisionRange()
     {
+        if (!PlayerManager.Instance.IsVisibleToEnemies)
+            return true;
         float distance = Vector3.Distance(_playerTransform.position, _stateMachine.transform.position);
         if (distance > _stateMachine.VisionRadius)
             return true;
@@ -252,6 +254,8 @@ public class AvoidState : EnemyState
 
     private bool IsPlayerOutsideVisionRange()
     {
+        if (!PlayerManager.Instance.IsVisibleToEnemies)
+            return true;
         float distance = Vector3.Distance(_playerTransform.position, _stateMachine.transform.position);
         if (distance > _stateMachine.VisionRadius)
             return true;

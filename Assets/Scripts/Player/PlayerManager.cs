@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CharacterSelectData _selectedCharacter;
     private bool _isHoldingKey;
     public bool IsHoldingKey { get => _isHoldingKey; }
+    public bool IsVisibleToEnemies { get => _isVisibleToEnemies; set => _isVisibleToEnemies = value; }
+
+    [SerializeField] private bool _isVisibleToEnemies = true;
     public static event Action<bool> OnKeyChanged;
     public static event Action OnPlayerDeath;
 
