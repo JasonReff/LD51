@@ -84,7 +84,6 @@ GameObject:
   - component: {fileID: 6021181874459649390}
   - component: {fileID: 2878916897334707118}
   - component: {fileID: 3566453500465664261}
-  - component: {fileID: 1299234166467857243}
   - component: {fileID: 3049352419649759882}
   m_Layer: 0
   m_Name: AxeBase1
@@ -208,18 +207,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1299234166467857243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2900584145900900700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5042f04e49909449bc6c91f8c0c304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3049352419649759882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7810422148140860052}
   - component: {fileID: 524479382}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AxeCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +285,6 @@ GameObject:
   - component: {fileID: 7972448818390438860}
   - component: {fileID: 2034832661368629563}
   - component: {fileID: 8654813021483905649}
-  - component: {fileID: 8130049958852599033}
   - component: {fileID: 1162857704925626741}
   m_Layer: 0
   m_Name: AxeBase2
@@ -422,18 +408,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8130049958852599033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936707804668230701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5042f04e49909449bc6c91f8c0c304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1162857704925626741
 MonoBehaviour:
   m_ObjectHideFlags: 0

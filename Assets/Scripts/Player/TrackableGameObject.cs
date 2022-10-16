@@ -9,4 +9,13 @@ public class TrackableGameObject : MonoBehaviour
     {
         OnObjectSpawned?.Invoke(this);
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.TryGetComponent(out Tracker tracker))
+        {
+            tracker.StopTrackingPoint(this);
+            Destroy(gameObject);
+        }
+    }
 }
