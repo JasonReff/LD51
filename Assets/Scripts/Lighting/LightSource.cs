@@ -22,6 +22,11 @@ public class LightSource : MonoBehaviour
         SnuffOut();
     }
 
+    public void Snuff()
+    {
+        enabled = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_isSnuffed)
