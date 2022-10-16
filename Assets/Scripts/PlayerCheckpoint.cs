@@ -28,4 +28,10 @@ public class PlayerCheckpoint : MonoBehaviour
         _isActive = false;
         _lightSource.enabled = false;
     }
+
+    public void SnuffOut()
+    {
+        _isActive = false;
+        _lightSource.enabled = false;
+    }
 }

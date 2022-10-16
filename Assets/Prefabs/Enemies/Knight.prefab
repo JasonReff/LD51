@@ -111,6 +111,7 @@ MonoBehaviour:
   _detectsPlayer: 0
   _reverseOnFinish: 0
   _detectsPlayerThroughWall: 0
+  _runsFromPlayer: 0
 --- !u!61 &840529567086136057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ NavMeshAgent:
   m_Height: 1.5
   m_BaseOffset: 0.75
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!50 &4162571278955737559
 Rigidbody2D:
   serializedVersion: 4
