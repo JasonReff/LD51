@@ -4,6 +4,7 @@ using UnityEngine;
 public class LightSource : MonoBehaviour
 {
     private List<Collider2D> contacts = new List<Collider2D>();
+    [SerializeField] private Animator _animator;
     private bool _isSnuffed;
     public bool IsSnuffed { get => _isSnuffed; }
 
@@ -15,11 +16,15 @@ public class LightSource : MonoBehaviour
     private void OnEnable()
     {
         _isSnuffed = false;
+        if (_animator != null)
+            _animator.SetBool("Lit", true);
     }
 
     private void OnDisable()
     {
         SnuffOut();
+        if (_animator != null)
+            _animator.SetBool("Lit", false);
     }
 
     public void Snuff()
