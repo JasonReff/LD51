@@ -5,6 +5,7 @@ public class PlayerCheckpoint : MonoBehaviour
 {
     [SerializeField] private bool _isActivatable, _isActive;
     [SerializeField] private LightSource _lightSource;
+    [SerializeField] private Animator _animator;
     public static event Action<PlayerCheckpoint> OnCheckpointActivated;
 
     private void Start()
@@ -18,6 +19,7 @@ public class PlayerCheckpoint : MonoBehaviour
             return;
         _isActivatable = false;
         _isActive = true;
+        SetAnimation();
         _lightSource.enabled = true;
         OnCheckpointActivated?.Invoke(this);
     }
@@ -26,12 +28,19 @@ public class PlayerCheckpoint : MonoBehaviour
     {
         _isActivatable = false;
         _isActive = false;
+        SetAnimation();
         _lightSource.enabled = false;
     }
 
     public void SnuffOut()
     {
         _isActive = false;
+        SetAnimation();
         _lightSource.enabled = false;
+    }
+
+    private void SetAnimation()
+    {
+        _animator.SetBool("Broken", !_isActivatable);
     }
 }
