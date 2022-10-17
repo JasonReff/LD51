@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PatrolEnemy : EnemyBase
@@ -17,9 +18,12 @@ public class PatrolEnemy : EnemyBase
     [SerializeField] private bool _reverseOnFinish;
     [SerializeField] private bool _detectsPlayerThroughWall;
     [SerializeField] private bool _runsFromPlayer;
+    [SerializeField] private float _visionAngle = 90f;
+    public float VisionAngle { get => _visionAngle; }
     public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; }
     public bool ReverseOnFinish { get => _reverseOnFinish; }
     public bool RunsFromPlayer { get => _runsFromPlayer; set => _runsFromPlayer = value; }
+    public bool OnlyDetectsForward;
     public event Action OnPatrolPointsChanged;
     public event Action OnWarp;
 

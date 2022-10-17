@@ -104,14 +104,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alwaysVisible: 1
-  _visionRadius: 5
+  _visionRadius: 4
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  _detectsPlayer: 0
+  _detectsPlayer: 1
   _reverseOnFinish: 0
   _detectsPlayerThroughWall: 0
   _runsFromPlayer: 0
+  _visionAngle: 90
+  OnlyDetectsForward: 1
 --- !u!61 &840529567086136057
 BoxCollider2D:
   m_ObjectHideFlags: 0
