@@ -51,6 +51,8 @@ public class EnemyState
     protected bool _runsFromPlayer;
     protected bool _detectPlayerThroughWall;
     protected bool _detectsPlayer;
+    protected bool _onlyDetectsForward;
+    protected float _visionAngleThreshold = 90f;
 
     public EnemyState(EnemyBase stateMachine) { _stateMachine = stateMachine; }
     public virtual void BeginState()
@@ -78,6 +80,8 @@ public class EnemyState
         {
             if (IsWallObscuring())
                 return;
+            if (!IsPlayerInFront())
+                return;
             if (_runsFromPlayer)
                 _stateMachine.ChangeState(new AvoidState(_stateMachine));
             else
@@ -96,6 +100,21 @@ public class EnemyState
                 {
                     return true;
                 }
+            }
+            return false;
+        }
+
+        bool IsPlayerInFront()
+        {
+            if (!_onlyDetectsForward)
+                return true;
+            Vector2 velocity = Vector3.Normalize(_stateMachine.Agent.velocity);
+            var visionDirection = velocity - (Vector2)_stateMachine.transform.position;
+            var playerDirection = _playerTransform.position - _stateMachine.transform.position;
+            var playerAngle = Vector2.Angle(visionDirection, playerDirection);
+            if (playerAngle < _visionAngleThreshold)
+            {
+                return true;
             }
             return false;
         }
@@ -167,6 +186,8 @@ public class PatrolState : EnemyState
         _reverseOnFinish = _patrolEnemy.ReverseOnFinish;
         _detectPlayerThroughWall = _patrolEnemy.DetectsPlayerThroughWall;
         _runsFromPlayer = _patrolEnemy.RunsFromPlayer;
+        _visionAngleThreshold = _patrolEnemy.VisionAngle;
+        _onlyDetectsForward = _patrolEnemy.OnlyDetectsForward;
         _stateMachine.Agent.SetDestination(_patrolPoints[0]);
         
     }
