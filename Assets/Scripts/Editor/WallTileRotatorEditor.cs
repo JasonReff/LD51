@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [CustomEditor(typeof(WallTileRotator))]
@@ -15,6 +16,14 @@ public class WallTileRotatorEditor : Editor
     {
         base.OnInspectorGUI();
         if (GUILayout.Button("Rotate Walls"))
+        {
             script.RotateTiles();
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+        if (GUILayout.Button("Reset Walls"))
+        {
+            script.ResetTiles();
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
     }
 }
