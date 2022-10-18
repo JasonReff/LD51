@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(NavMeshManager))]
 public class NavMeshEditor : Editor
@@ -18,6 +19,7 @@ public class NavMeshEditor : Editor
         {
             _script.RebakeAllMeshes();
             Debug.Log("Meshes rebaked");
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
     }
 }

@@ -34,6 +34,9 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(string sceneName, bool async = false)
     {
+#if UNITY_EDITOR
+        async = false;
+#endif
         if (async)
             StartCoroutine(LoadSceneAsync(sceneName));
         else
