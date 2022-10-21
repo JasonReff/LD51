@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class MainMenu : MonoBehaviour
     private bool timerActive = false;
     public float timerDuration;
     public float currentTime;
+    public float cameraTweenTime = 1f, cameraTweenDelay = 0.5f;
 
     //Effects
     [SerializeField] private ThunderManager _thunder;
@@ -159,8 +161,15 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void ChangeCharacter(bool right)
+    public void TweenCamera(Camera otherCamera)
     {
-        // change character
+        StartCoroutine(Coroutine());
+
+        IEnumerator Coroutine()
+        {
+            yield return new WaitForSeconds(cameraTweenDelay);
+            cam.transform.DOMove(otherCamera.transform.position, cameraTweenTime);
+            cam.DOOrthoSize(otherCamera.orthographicSize, cameraTweenTime);
+        }
     }
 }
