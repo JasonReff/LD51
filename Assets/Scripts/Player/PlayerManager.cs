@@ -63,15 +63,24 @@ public class PlayerManager : MonoBehaviour
         _ghost.transform.DOLocalMoveY(_ghost.transform.localPosition.y + _ghostRiseDistance, _ghostRiseDuration).SetUpdate(true);
         yield return new WaitForSecondsRealtime(_ghostRiseDuration);
         OnPlayerDeath?.Invoke();
-        _player.enabled = true;
-        _ghost.enabled = false;
+        _isVisibleToEnemies = false;
         _tombstone.enabled = false;
-        _tombstoneAnimator.enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void SetKey(bool key)
     {
         _isHoldingKey = key;
         OnKeyChanged?.Invoke(key);
+    }
+
+    public void ResetLife()
+    {
+        _player.enabled = true;
+        _ghost.enabled = false;
+        _tombstone.enabled = false;
+        _tombstoneAnimator.enabled = false;
+        _isVisibleToEnemies = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }

@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
     private Stack<PlayerCheckpoint> _activeCheckpoints = new Stack<PlayerCheckpoint>();
+    private float _spawnDelay = 3f;
 
     private void OnEnable()
     {
@@ -28,8 +30,15 @@ public class CheckpointManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+            StartCoroutine(RespawnCoroutine());
+        }
+
+        IEnumerator RespawnCoroutine()
+        {
+            yield return new WaitForSeconds(_spawnDelay);
             var checkpoint = _activeCheckpoints.Pop();
             PlayerManager.Instance.transform.position = checkpoint.transform.position;
+            PlayerManager.Instance.ResetLife();
             checkpoint.UseCheckpoint();
         }
     }
