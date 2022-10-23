@@ -13,12 +13,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float _deathDuration = 3f, _ghostRiseDuration = 1f, _ghostRiseDistance = 1f, _tombstoneDuration = 1f;
     [SerializeField] private AudioClip _deathSound;
     [SerializeField] private CharacterSelectData _selectedCharacter;
-    private bool _isHoldingKey;
-    public bool IsHoldingKey { get => _isHoldingKey; }
+    private Dictionary<int, bool> _playerKeys = new Dictionary<int, bool>();
     public bool IsVisibleToEnemies { get => _isVisibleToEnemies; set => _isVisibleToEnemies = value; }
 
     [SerializeField] private bool _isVisibleToEnemies = true;
-    public static event Action<bool> OnKeyChanged;
+    public static event Action<bool, int> OnKeyChanged;
     public static event Action OnPlayerDeath;
 
     private void Awake()
@@ -68,10 +67,15 @@ public class PlayerManager : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
-    public void SetKey(bool key)
+    public void SetKey(int keyID, bool key)
     {
-        _isHoldingKey = key;
-        OnKeyChanged?.Invoke(key);
+        _playerKeys[keyID] = key;
+        OnKeyChanged?.Invoke(key, keyID);
+    }
+
+    public bool IsHoldingKey(int keyID)
+    {
+        return _playerKeys[keyID];
     }
 
     public void ResetLife()

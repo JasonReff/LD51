@@ -15,7 +15,7 @@ public class LightSource : MonoBehaviour
 
     private void OnEnable()
     {
-        _isSnuffed = false;
+        Relight();
         if (_animator != null)
             _animator.SetBool("Lit", true);
     }
@@ -53,9 +53,23 @@ public class LightSource : MonoBehaviour
     private void SnuffOut()
     {
         _isSnuffed = true;
+        SetContacts(false);
+    }
+
+    private void SetContacts(bool visible)
+    {
         GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D().NoFilter(), contacts);
         foreach (var contact in contacts)
             if (contact.TryGetComponent(out ToggleLight light))
-                light.ChangeVisibility(false);
+                light.ChangeVisibility(visible);
+    }
+
+    private void Relight()
+    {
+        if (_isSnuffed)
+        {
+            _isSnuffed = false;
+            SetContacts(true);
+        }
     }
 }

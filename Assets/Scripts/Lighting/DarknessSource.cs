@@ -11,4 +11,12 @@ public class DarknessSource : MonoBehaviour
             lightToggle.ChangeVisibility(false);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out ToggleLight lightToggle))
+        {
+            lightToggle.OnDarknessLeft();
+        }
+    }
 }

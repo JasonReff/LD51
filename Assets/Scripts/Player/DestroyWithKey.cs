@@ -7,11 +7,12 @@ public class DestroyWithKey : MonoBehaviour
     public static event Action OnWallDestroyed;
     [SerializeField] private AudioClip _wallDestroyedClip;
     [SerializeField] private List<GameObject> _connectedWalls;
+    [SerializeField] private int _keyID;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerManager player))
         {
-            if (player.IsHoldingKey)
+            if (player.IsHoldingKey(_keyID))
             {
                 OpenDoor(player);
             }
@@ -20,7 +21,7 @@ public class DestroyWithKey : MonoBehaviour
 
     private void OpenDoor(PlayerManager player)
     {
-        player.SetKey(false);
+        player.SetKey(_keyID, false);
         AudioManager.PlaySoundEffect(_wallDestroyedClip);
         gameObject.SetActive(false);
         foreach (var wall in _connectedWalls)

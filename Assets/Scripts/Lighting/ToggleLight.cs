@@ -38,7 +38,7 @@ public class ToggleLight : MonoBehaviour
 
     public virtual void ChangeVisibilityTweenless(bool visibility)
     {
-        if (visibility && IsTouchingDarknessSource())
+        if (visibility && !IsTouchingDarknessSource())
             ChangeAlpha(1f);
         else if (IsTouchingDarknessSource() | !IsTouchingLightSource())
             ChangeAlpha(0f);
@@ -103,5 +103,13 @@ public class ToggleLight : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void OnDarknessLeft()
+    {
+        if (IsTouchingLightSource())
+        {
+            ChangeVisibilityTweenless(true);
+        }
     }
 }
