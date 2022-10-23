@@ -128,6 +128,23 @@ namespace UnityEditor.AI
             }
         }
 
+        public void StartBakingSurfaces(NavMeshSurface2d surf)
+        {
+            // Remove first to avoid double registration of the callback
+            EditorApplication.update -= UpdateAsyncBuildOperations;
+            EditorApplication.update += UpdateAsyncBuildOperations;
+
+            StoreNavMeshDataIfInPrefab(surf);
+
+            var oper = new AsyncBakeOperation();
+
+            oper.bakeData = InitializeBakeData(surf);
+            oper.bakeOperation = surf.UpdateNavMesh(oper.bakeData);
+            oper.surface = surf;
+
+            m_BakeOperations.Add(oper);
+        }
+
         static NavMeshData InitializeBakeData(NavMeshSurface2d surface)
         {
             var emptySources = new List<NavMeshBuildSource>();

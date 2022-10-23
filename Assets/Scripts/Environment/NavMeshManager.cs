@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AI;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -49,6 +50,6 @@ public class NavMeshManager : MonoBehaviour
     public void RebakeAllMeshes()
     {
         foreach (var mesh in AllMeshes)
-            mesh.BuildNavMesh();
+            NavMeshAssetManager2d.instance.StartBakingSurfaces(mesh);
     }
 }
