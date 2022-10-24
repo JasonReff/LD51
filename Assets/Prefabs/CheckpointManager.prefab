@@ -53,6 +53,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 7326599182237697865}
     m_Modifications:
+    - target: {fileID: 3309546900537295678, guid: dedf1b6cccb3ff942943a88a7f4111a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 77ca4db638a0ffa46a0931e5cffeab27, type: 3}
     - target: {fileID: 3539215906158240208, guid: dedf1b6cccb3ff942943a88a7f4111a7, type: 3}
       propertyPath: m_Name
       value: TorchCheckpoint
