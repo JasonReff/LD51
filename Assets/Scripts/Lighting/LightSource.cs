@@ -38,7 +38,8 @@ public class LightSource : MonoBehaviour
             return;
         if (collision.TryGetComponent<ToggleLight>(out ToggleLight lightToggle))
         {
-            lightToggle.ChangeVisibility(true);
+            if (lightToggle.enabled)
+                lightToggle.ChangeVisibility(true);
         }
     }
 
@@ -46,7 +47,8 @@ public class LightSource : MonoBehaviour
     {
         if (collision.TryGetComponent<ToggleLight>(out ToggleLight lightToggle))
         {
-            lightToggle.ChangeVisibility(false);
+            if (lightToggle.enabled)
+                lightToggle.ChangeVisibility(false);
         }
     }
 

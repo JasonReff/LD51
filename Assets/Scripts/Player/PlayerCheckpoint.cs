@@ -34,6 +34,8 @@ public class PlayerCheckpoint : MonoBehaviour
 
     public void SnuffOut()
     {
+        if (_isActive || _isActivatable)
+            _isActivatable = true;
         _isActive = false;
         SetAnimation();
         _lightSource.enabled = false;

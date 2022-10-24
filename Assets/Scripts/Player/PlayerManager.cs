@@ -64,7 +64,7 @@ public class PlayerManager : MonoBehaviour
         OnPlayerDeath?.Invoke();
         _isVisibleToEnemies = false;
         _tombstone.enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     public void SetKey(int keyID, bool key)
@@ -85,6 +85,6 @@ public class PlayerManager : MonoBehaviour
         _tombstone.enabled = false;
         _tombstoneAnimator.enabled = false;
         _isVisibleToEnemies = true;
-        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
     }
 }

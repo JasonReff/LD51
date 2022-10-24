@@ -96,16 +96,24 @@ PrefabInstance:
       value: Shadow
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6fa2a265a7a141e47a0f43684af8159d, type: 3}
+    - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Color.b
-      value: 0.1792453
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Color.g
-      value: 0.1792453
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Color.r
-      value: 0.1792453
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450609, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_RootOrder
@@ -155,6 +163,10 @@ PrefabInstance:
       propertyPath: _detectsPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8654247563139196007, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dfb697d9f948c2e49a3d1f0ba094618a, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 371840125030450609, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
