@@ -15,6 +15,7 @@ namespace UnityEditor.Tilemaps
         /// </summary>
         [SerializeField] GameObject m_Prefab;
         Quaternion m_Rotation = default;
+        [SerializeField] Quaternion offset;
         
         #pragma warning restore 0649
 
@@ -49,7 +50,7 @@ namespace UnityEditor.Tilemaps
 
             if (!existPrefabObjectInCell)
             {
-                base.InstantiatePrefabInCell(grid, brushTarget, position, m_Prefab, m_Rotation);
+                base.InstantiatePrefabInCell(grid, brushTarget, position, m_Prefab, offset);
             }
         }
 
@@ -116,6 +117,7 @@ namespace UnityEditor.Tilemaps
         {
             private PrefabBrush prefabBrush => target as PrefabBrush;
             private SerializedProperty m_Prefab;
+            private SerializedProperty offset;
 
             /// <summary>
             /// OnEnable for the PrefabBrushEditor
@@ -124,6 +126,7 @@ namespace UnityEditor.Tilemaps
             {
                 base.OnEnable();
                 m_Prefab = m_SerializedObject.FindProperty(nameof(m_Prefab));
+                offset = m_SerializedObject.FindProperty(nameof(offset));
             }
 
             /// <summary>
@@ -141,6 +144,10 @@ namespace UnityEditor.Tilemaps
                 base.OnPaintInspectorGUI();
 
                 m_SerializedObject.UpdateIfRequiredOrScript();
+                EditorGUILayout.PropertyField(offset, true);
+
+                GUILayout.Space(25f);
+
                 EditorGUILayout.PropertyField(m_Prefab, true);
                 prefabBrush.m_EraseAnyObjects = EditorGUILayout.Toggle(
                     new GUIContent("Erase Any Objects", eraseAnyObjectsTooltip),
