@@ -25,7 +25,8 @@ public class ToggleLight : MonoBehaviour
     private void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
-        ChangeVisibilityTweenless(false);
+        if (LightningStrikeManager.Instance != null)
+            ChangeVisibilityTweenless(false);
     }
 
     public virtual void ChangeVisibility(bool visibility)

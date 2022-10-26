@@ -8,7 +8,8 @@ public class DarknessSource : MonoBehaviour
     {
         if (collision.TryGetComponent<ToggleLight>(out ToggleLight lightToggle))
         {
-            lightToggle.ChangeVisibility(false);
+            if (lightToggle.enabled)
+                lightToggle.ChangeVisibility(false);
         }
     }
 
@@ -16,7 +17,8 @@ public class DarknessSource : MonoBehaviour
     {
         if (collision.TryGetComponent(out ToggleLight lightToggle))
         {
-            lightToggle.OnDarknessLeft();
+            if (lightToggle.enabled)
+                lightToggle.OnDarknessLeft();
         }
     }
 }

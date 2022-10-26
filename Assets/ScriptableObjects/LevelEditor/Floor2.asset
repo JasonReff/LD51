@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15887554b5eef9e42b4b38f9da7a23b7, type: 3}
+  m_Name: Floor2
+  m_EditorClassIdentifier: 
+  _highlight: {fileID: 7936419608476149580, guid: 15854d1e713daad4aab9e2df5bd6510c, type: 3}
+  IsWall: 0
+  IsFloor: 1
+  _tilePrefab: {fileID: 7810422148140860057, guid: aa690ca3ce4d5e548a0b1e781c8467ce, type: 3}

@@ -39,6 +39,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private CameraSettingsData _cameraSettings;
     [SerializeField] private CameraSettingsReader _cameraSettingsReader;
 
+    //Cameras
+    [SerializeField] private Camera _levelSelectCam, _defaultCam;
+    private bool _cameraGlitchEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -127,8 +130,18 @@ public class MainMenu : MonoBehaviour
         if (!levelSelect.activeInHierarchy) {
             LightningStrike();
             HideSubmenus();
+            TweenCamera(_levelSelectCam);
+            _cameraGlitchEffect = cam.GetComponent<CameraGlitchEffect>().enabled;
+            cam.GetComponent<CameraGlitchEffect>().enabled = false;
             levelSelect.SetActive(true);
         }
+    }
+
+    public void ExitLevelSelect()
+    {
+        TweenCamera(_defaultCam, false);
+        cam.GetComponent<CameraGlitchEffect>().enabled = _cameraGlitchEffect;
+        levelSelect.SetActive(false);
     }
 
     public void DisplayOptions() 
@@ -161,13 +174,14 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void TweenCamera(Camera otherCamera)
+    public void TweenCamera(Camera otherCamera, bool delay = true)
     {
         StartCoroutine(Coroutine());
 
         IEnumerator Coroutine()
         {
-            yield return new WaitForSeconds(cameraTweenDelay);
+            if (delay)
+                yield return new WaitForSeconds(cameraTweenDelay);
             cam.transform.DOMove(otherCamera.transform.position, cameraTweenTime);
             cam.DOOrthoSize(otherCamera.orthographicSize, cameraTweenTime);
         }
