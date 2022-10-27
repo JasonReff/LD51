@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PatrolEnemy : EnemyBase
@@ -75,4 +74,20 @@ public class PatrolEnemy : EnemyBase
     {
         OnWarp?.Invoke();
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
+        foreach (var point in _patrolPoints)
+        {
+            Gizmos.DrawSphere(point.transform.position, 0.5f);
+
+            var nextPoint = _patrolPoints.GetNext(point);
+            if (_reverseOnFinish && _patrolPoints.IndexOf(point) == _patrolPoints.Count - 1)
+                continue;
+            Gizmos.DrawLine(point.transform.position, nextPoint.transform.position);
+        }
+    }
+
+
 }
