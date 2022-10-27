@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Vanish
   m_EditorClassIdentifier: 
   _cooldown: 20
+  _color: {r: 1, g: 0, b: 0, a: 0.15686275}
   _vanishDuration: 2
   _fadeTime: 0.25
   _fadeOpacity: 0.25

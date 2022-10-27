@@ -6,7 +6,8 @@ using TMPro;
 public class BestTimeManager : SingletonMonobehaviour<BestTimeManager>
 {
     [SerializeField] private float _time = 0f, _bestTime;
-    [SerializeField] private BestTimesData _timeData;
+    [SerializeField] private LevelCompletionData _levelCompletionData;
+    [SerializeField] private CharacterSelectData _characterSelectData;
     [SerializeField] private TextMeshProUGUI _currentTimeTextbox, _bestTimeTextbox;
     private string stageName;
 
@@ -25,14 +26,14 @@ public class BestTimeManager : SingletonMonobehaviour<BestTimeManager>
     private void RecordTime()
     {
         if (_time < _bestTime)
-            _timeData.RecordBestTime(stageName, _time);
+            _levelCompletionData.SetCompletionStatus(_characterSelectData.SelectedCharacter, stageName, true, _time);
 
     }
 
     private void Start()
     {
         stageName = SceneManager.GetActiveScene().name;
-        _bestTime = _timeData.PullBestTime(stageName);
+        _bestTime = _levelCompletionData.PullBestTime(_characterSelectData.SelectedCharacter, stageName);
         _bestTimeTextbox.text = _bestTime.ToString();
     }
 

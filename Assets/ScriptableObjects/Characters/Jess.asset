@@ -15,3 +15,4 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   CharacterAnimatorController: {fileID: 0}
   Ability: {fileID: 11400000, guid: 4bb6f58d012a645409f1d5c32ea37f95, type: 2}
+  AbilityColor: {r: 1, g: 0, b: 0.21404552, a: 0.34117648}

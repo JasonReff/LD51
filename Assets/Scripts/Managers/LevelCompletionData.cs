@@ -8,6 +8,7 @@ using System.IO;
 [CreateAssetMenu(menuName = "LevelCompletionData")]
 public class LevelCompletionData : ScriptableObject
 {
+    [SerializeField] private float _defaultTime;
     [SerializeField] private List<CharacterData> _characterDatas;
     [SerializeField] private List<StageCompletionData> _stageDatas;
     private List<CharacterData> _completedCharacters = new List<CharacterData>();
@@ -17,21 +18,22 @@ public class LevelCompletionData : ScriptableObject
         public string StageName;
         public List<CharacterCompletion> CharactersCompleted = new List<CharacterCompletion>();
 
-        public void ResetCompletion()
+        public void ResetCompletion(float defaultTime)
         {
             for (int i = 0; i < CharactersCompleted.Count; i++)
             {
                 CharacterCompletion completion = CharactersCompleted[i];
                 completion.CompletionStatus = false;
+                completion.BestCompletionTime = defaultTime;
             }
         }
 
-        public void ResetCharacters(List<CharacterData> allCharacters)
+        public void ResetCharacters(List<CharacterData> allCharacters, float defaultTime)
         {
             CharactersCompleted.Clear();
             foreach (var character in allCharacters)
             {
-                CharactersCompleted.Add((character, false));
+                CharactersCompleted.Add(new CharacterCompletion(character, false) { BestCompletionTime = defaultTime});
             }
         }
     }
@@ -61,12 +63,12 @@ public class LevelCompletionData : ScriptableObject
         return names;
     }
 
-    public void SetCompletionStatus(CharacterData characterData, string stageName, bool completed)
+    public void SetCompletionStatus(CharacterData characterData, string stageName, bool completed, float completionTime)
     {
         var stageData = _stageDatas.FirstOrDefault(t => t.StageName == stageName);
         if (stageData != null)
         {
-            (CharacterData, bool) characterCompletion;
+            CharacterCompletion characterCompletion;
             if (stageData.CharactersCompleted.Any(t => t.Character == characterData))
                 characterCompletion = stageData.CharactersCompleted.FirstOrDefault(t => t.Character == characterData);
             else
@@ -74,15 +76,38 @@ public class LevelCompletionData : ScriptableObject
                 Debug.LogError(characterData.name + " not found in completion data. Reset completion data or insert missing characters.");
                 return;
             }
-            characterCompletion.Item2 = completed;
+            characterCompletion.RecordTime(completionTime);
+            characterCompletion.CompletionStatus = completed;
         }
+    }
+
+    public float PullBestTime(CharacterData characterData, string stageName)
+    {
+        var stageData = _stageDatas.FirstOrDefault(t => t.StageName == stageName);
+        var time = _defaultTime;
+        if (stageData != null)
+        {
+            CharacterCompletion characterCompletion;
+            if (stageData.CharactersCompleted.Any(t => t.Character == characterData))
+                characterCompletion = stageData.CharactersCompleted.FirstOrDefault(t => t.Character == characterData);
+            else
+            {
+                Debug.LogError(characterData.name + " not found in completion data. Reset completion data or insert missing characters.");
+                return time;
+            }
+            if (characterCompletion.CompletionStatus)
+            {
+                time = characterCompletion.BestCompletionTime;
+            }
+        }
+        return time;
     }
 
     public void ResetAllCompletionData()
     {
         foreach (var stage in _stageDatas)
         {
-            stage.ResetCompletion();
+            stage.ResetCompletion(_defaultTime);
         }
     }
 
@@ -90,7 +115,7 @@ public class LevelCompletionData : ScriptableObject
     {
         foreach (var stage in _stageDatas)
         {
-            stage.ResetCharacters(_characterDatas);
+            stage.ResetCharacters(_characterDatas, _defaultTime);
         }
     }
 
@@ -106,7 +131,7 @@ public class LevelCompletionData : ScriptableObject
                 if (!_stageDatas.Any(t => t.StageName == sceneName))
                 {
                     var stageData = new StageCompletionData() { StageName = sceneName };
-                    stageData.ResetCharacters(_characterDatas);
+                    stageData.ResetCharacters(_characterDatas, _defaultTime);
                     _stageDatas.Add(stageData);
                 }
             }
@@ -120,38 +145,17 @@ class CharacterCompletion
 {
     public CharacterData Character;
     public bool CompletionStatus;
+    public float BestCompletionTime;
 
-    public CharacterCompletion(CharacterData item1, bool item2)
+    public CharacterCompletion(CharacterData character, bool status)
     {
-        Character = item1;
-        CompletionStatus = item2;
+        Character = character;
+        CompletionStatus = status;
     }
 
-    public override bool Equals(object obj)
+    public void RecordTime(float newTime)
     {
-        return obj is CharacterCompletion other &&
-               EqualityComparer<CharacterData>.Default.Equals(Character, other.Character) &&
-               CompletionStatus == other.CompletionStatus;
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(Character, CompletionStatus);
-    }
-
-    public void Deconstruct(out CharacterData item1, out bool item2)
-    {
-        item1 = Character;
-        item2 = CompletionStatus;
-    }
-
-    public static implicit operator (CharacterData, bool)(CharacterCompletion value)
-    {
-        return (value.Character, value.CompletionStatus);
-    }
-
-    public static implicit operator CharacterCompletion((CharacterData, bool) value)
-    {
-        return new CharacterCompletion(value.Item1, value.Item2);
+        if (CompletionStatus == false || newTime < BestCompletionTime)
+            BestCompletionTime = newTime;
     }
 }

@@ -484,7 +484,8 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   _time: 0
   _bestTime: 0
-  _timeData: {fileID: 11400000, guid: d7ae5715652c6704388eb1bace49a0c1, type: 2}
+  _levelCompletionData: {fileID: 11400000, guid: 39ee734b9aa092d4fa521c2d6e320dca, type: 2}
+  _characterSelectData: {fileID: 11400000, guid: 86037dc3ea3992c47bd40276ded3dc70, type: 2}
   _currentTimeTextbox: {fileID: 892230232577990492}
   _bestTimeTextbox: {fileID: 7585748434457744014}
 --- !u!1 &5532127082858275589

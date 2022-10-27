@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   _cooldown: 3
+  _color: {r: 0, g: 1, b: 0.010393143, a: 0.15686275}
   _dashDuration: 0.5
   _dashSpeed: 10

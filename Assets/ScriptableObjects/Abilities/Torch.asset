@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68583137f3342942af015eebc10845a, type: 3}
   m_Name: Torch
   m_EditorClassIdentifier: 
-  _cooldown: 0
+  _cooldown: 300
+  _color: {r: 0.94708157, g: 1, b: 0, a: 0.15686275}
   _torch: {fileID: 6570633143046143231, guid: dedf1b6cccb3ff942943a88a7f4111a7, type: 3}
   _usedThisLevel: 0

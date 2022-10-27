@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb1a9e8b7a93b54e947f5fdc95ea774, type: 3}
   m_Name: Sid
   m_EditorClassIdentifier: 
-  CharacterSprite: {fileID: 21300000, guid: 45899c9698699be48859ca8c83ebde18, type: 3}
+  CharacterSprite: {fileID: 21300000, guid: ab8c153bcff0bf8448acfb411c6cb3e3, type: 3}
   CharacterAnimatorController: {fileID: 9100000, guid: 99481e31171fadc418208190deddce80, type: 2}
   Ability: {fileID: 11400000, guid: 8b3d0a5f030d5fa4baf93eedcf856263, type: 2}
+  AbilityColor: {r: 0, g: 0, b: 0, a: 0}

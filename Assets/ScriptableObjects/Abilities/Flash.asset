@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Flash
   m_EditorClassIdentifier: 
   _cooldown: 5
+  _color: {r: 1, g: 0, b: 0.92387056, a: 0.15686275}
   _flashDuration: 1.5
   _flashRadius: 4

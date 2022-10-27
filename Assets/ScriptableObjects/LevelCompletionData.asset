@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24e3ebddee6f9242be9d066c122196c, type: 3}
   m_Name: LevelCompletionData
   m_EditorClassIdentifier: 
+  _defaultTime: 120
   _characterDatas:
   - {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
   - {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
@@ -23,179 +24,305 @@ MonoBehaviour:
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level1-2
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level1-3
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level2-1
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level2-2
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level2-3
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level3-1
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level3-2
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level3-3
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level4-1
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level4-2
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level4-3
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level5-1
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level5-2
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
   - StageName: Level5-3
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
     - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
       CompletionStatus: 0
+      BestCompletionTime: 120
+  - StageName: Level6-1
+    CharactersCompleted:
+    - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+  - StageName: Level6-2
+    CharactersCompleted:
+    - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+  - StageName: Level6-3
+    CharactersCompleted:
+    - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120
+    - Character: {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
+      CompletionStatus: 0
+      BestCompletionTime: 120

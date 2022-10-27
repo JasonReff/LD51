@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &366795404495893793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stageName: 1-1
-  _bestTimesData: {fileID: 11400000, guid: d7ae5715652c6704388eb1bace49a0c1, type: 2}
   _levelCompletionData: {fileID: 11400000, guid: 39ee734b9aa092d4fa521c2d6e320dca, type: 2}
   _playButtons:
   - {fileID: 5977563944563667987}
