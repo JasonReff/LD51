@@ -18,6 +18,7 @@ public class PatrolEnemy : EnemyBase
     [SerializeField] private bool _detectsPlayerThroughWall;
     [SerializeField] private bool _runsFromPlayer;
     [SerializeField] private float _visionAngle = 90f;
+    [SerializeField] private Color _gizmoColor = new Color(1f, 0f, 0f, 0.25f);
     public float VisionAngle { get => _visionAngle; }
     public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; }
     public bool ReverseOnFinish { get => _reverseOnFinish; }
@@ -77,7 +78,7 @@ public class PatrolEnemy : EnemyBase
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
+        Gizmos.color = _gizmoColor;
         foreach (var point in _patrolPoints)
         {
             Gizmos.DrawSphere(point.transform.position, 0.5f);
