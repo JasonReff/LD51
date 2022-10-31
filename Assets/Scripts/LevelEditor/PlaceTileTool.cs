@@ -8,10 +8,10 @@ namespace LevelEditor
     {
         [SerializeField] private GameObject _tilePrefab;
 
-        public override void UseTool(Vector3Int tileCoordinates, Tilemap tilemap)
+        public override void UseTool(Vector3Int tileCoordinates, LevelEditorTilemap tilemap)
         {
             base.UseTool(tileCoordinates, tilemap);
-            var tile = Instantiate(_tilePrefab, tilemap.GetCellCenterWorld(tileCoordinates), _tilePrefab.transform.rotation, tilemap.transform);
+            tilemap.PaintGameObject(_tilePrefab, tileCoordinates);
         }
 
     }

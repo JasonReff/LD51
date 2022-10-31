@@ -11,7 +11,7 @@ namespace LevelEditor
         public GameObject Highlight { get => _highlight; }
         public bool IsWall;
         public bool IsFloor;
-        public virtual void UseTool(Vector3Int tileCoordinates, Tilemap tilemap)
+        public virtual void UseTool(Vector3Int tileCoordinates, LevelEditorTilemap tilemap)
         {
 
         }

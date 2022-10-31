@@ -6,7 +6,8 @@ namespace LevelEditor
     public class LevelEditorManager : MonoBehaviour
     {
         [SerializeField] private LevelEditorTool _equippedTool;
-        [SerializeField] private Tilemap _wallTilemap, _floorTilemap, _highlightTilemap;
+        [SerializeField] private Tilemap _highlightTilemap;
+        [SerializeField] private LevelEditorTilemap _wallTilemap, _floorTilemap;
         private Camera _main;
         private GameObject _toolHighlight;
 
