@@ -8,11 +8,12 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private LevelCompletionData _completionData;
     [SerializeField] private Transform _levelParent;
     private List<string> _stages = new List<string>();
+    [SerializeField] private FloorSelectManager _floorSelect;
 
-    private void OnEnable()
+    public void GetFloorLevels(string floorNumber)
     {
         ClearStages();
-        GetStages();
+        GetStages(floorNumber);
     }
 
     private void ClearStages()
@@ -31,11 +32,25 @@ public class LevelSelectManager : MonoBehaviour
             SpawnListLevel(name);
     }
 
+    private void GetStages(string floorNumber)
+    {
+        _stages = _completionData.GetStageNames();
+        foreach (var name in _stages)
+            if (name[name.Length - 3].ToString() == floorNumber)
+                SpawnListLevel(name);
+    }
+
     private void SpawnListLevel(string stageName)
     {
         var level = Instantiate(_levelPrefab, _levelParent);
         level.Initialize(stageName);
         _levels.Add(level);
+    }
+
+    public void ExitLevelSelect()
+    {
+        _floorSelect.ShowFloors();
+        gameObject.SetActive(false);
     }
 
 }

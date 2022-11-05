@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : SingletonMonobehaviour<SettingsManager>
 {
     [SerializeField] private Slider _musicSlider, _effectsSlider, _masterVolumeSlider;
     [SerializeField] private SoundSettingsData _soundSettings;
     [SerializeField] private List<CharacterData> _characterDatas;
     [SerializeField] private CharacterSelectData _characterSelectData;
-    [SerializeField] private Image _characterDisplay;
+    [SerializeField] private Image _characterDisplay, _levelSelectCharacterDisplay;
     [SerializeField] private CameraSettingsData _cameraSettings;
     private int _characterDataIndex;
+    public static event Action<CharacterData> OnCharacterSelected;
 
     private void Start()
     {
@@ -57,7 +59,9 @@ public class SettingsManager : MonoBehaviour
     {
         var characterData = _characterDatas[characterIndex];
         _characterDisplay.sprite = characterData.CharacterSprite;
+        _levelSelectCharacterDisplay.sprite = characterData.CharacterSprite;
         _characterSelectData.SelectedCharacter = characterData;
+        OnCharacterSelected?.Invoke(characterData);
     }
 
     public void TogglePostProcessing()

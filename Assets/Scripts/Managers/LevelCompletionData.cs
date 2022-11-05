@@ -55,6 +55,19 @@ public class LevelCompletionData : ScriptableObject
         return _completedCharacters;
     }
 
+    public List<string> GetFloorNames()
+    {
+        var names = new List<string>();
+        for (int i = 0; i < _stageDatas.Count; i++)
+        {
+            var stageName = _stageDatas[i].StageName;
+            string floorNumber = stageName[stageName.Length - 3].ToString();
+            if (!names.Contains(floorNumber))
+                names.Add(floorNumber);
+        }
+        return names;
+    }
+
     public List<string> GetStageNames()
     {
         var names = new List<string>();
@@ -101,6 +114,25 @@ public class LevelCompletionData : ScriptableObject
             }
         }
         return time;
+    }
+
+    public bool GetCompletionStatus(CharacterData characterData, string stageName)
+    {
+        var stageData = _stageDatas.FirstOrDefault(t => t.StageName == stageName);
+        if (stageData != null)
+        {
+            CharacterCompletion characterCompletion;
+            if (stageData.CharactersCompleted.Any(t => t.Character == characterData))
+                characterCompletion = stageData.CharactersCompleted.FirstOrDefault(t => t.Character == characterData);
+            else
+            {
+                Debug.LogError(characterData.name + " not found in completion data. Reset completion data or insert missing characters.");
+                return false;
+            }
+            if (characterCompletion.CompletionStatus)
+                return true;
+        }
+        return false;
     }
 
     public void ResetAllCompletionData()

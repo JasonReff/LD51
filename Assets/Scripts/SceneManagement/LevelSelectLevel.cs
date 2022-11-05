@@ -9,12 +9,24 @@ public class LevelSelectLevel : MonoBehaviour
     [SerializeField] private LevelCompletionData _levelCompletionData;
     [SerializeField] private List<LevelSelectPlayButton> _playButtons;
     [SerializeField] private TextMeshProUGUI _levelTextbox, _timeTextbox;
+    [SerializeField] private CharacterSelectData _characterSelectData;
+    
 
     public void Initialize(string stageName)
     {
         _stageName = stageName;
         _levelTextbox.text = stageName.Substring(stageName.Length - 3);
-        LoadCompletions();
+        DisplayTime(_characterSelectData.SelectedCharacter);
+    }
+
+    private void OnEnable()
+    {
+        SettingsManager.OnCharacterSelected += DisplayTime;
+    }
+
+    private void OnDisable()
+    {
+        SettingsManager.OnCharacterSelected -= DisplayTime;
     }
 
     private void LoadCompletions()
@@ -25,8 +37,26 @@ public class LevelSelectLevel : MonoBehaviour
             if (charactersCompleted.Contains(play.CharacterData))
             {
                 play.LoadCompletionSprite();
-                play.LoadCompletionTime(_levelCompletionData.PullBestTime(play.CharacterData, _stageName));
             }
         }
+    }
+
+    private void DisplayTime(CharacterData character)
+    {
+        if (_levelCompletionData.GetCompletionStatus(character, _stageName))
+        {
+            var completionTime = _levelCompletionData.PullBestTime(character, _stageName);
+            _timeTextbox.text = completionTime.ToString("0.00");
+        }
+        else
+        {
+            _timeTextbox.text = "-- --";
+        }
+        
+    }
+
+    public void PlayLevel()
+    {
+        SceneLoader.Instance.LoadScene(_stageName);
     }
 }
