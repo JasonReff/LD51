@@ -9,17 +9,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
     private Rigidbody2D rb;
     private Vector2 movement;
-    public bool IsDashing;
+    public bool IsDashing, CanMove;
 
     public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -29,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = movement * playerSpeed;
+        if (CanMove)
+            rb.velocity = movement * playerSpeed;
     }
 
     private void UpdateAnimation()

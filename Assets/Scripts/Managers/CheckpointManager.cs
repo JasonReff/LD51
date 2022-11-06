@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
@@ -11,12 +12,14 @@ public class CheckpointManager : MonoBehaviour
     {
         PlayerManager.OnPlayerDeath += OnPlayerDeath;
         PlayerCheckpoint.OnCheckpointActivated += OnCheckpointActivated;
+        PlayerCheckpoint.OnCheckpointSnuffed += OnCheckpointSnuffed;
     }
 
     private void OnDisable()
     {
         PlayerManager.OnPlayerDeath -= OnPlayerDeath;
         PlayerCheckpoint.OnCheckpointActivated -= OnCheckpointActivated;
+        PlayerCheckpoint.OnCheckpointSnuffed -= OnCheckpointSnuffed;
     }
 
     private void OnPlayerDeath()
@@ -46,5 +49,17 @@ public class CheckpointManager : MonoBehaviour
     private void OnCheckpointActivated(PlayerCheckpoint checkpoint)
     {
         _activeCheckpoints.Push(checkpoint);
+    }
+
+    private void OnCheckpointSnuffed(PlayerCheckpoint checkpoint)
+    {
+        var checkpointList = _activeCheckpoints.ToList();
+        checkpointList.Remove(checkpoint);
+        _activeCheckpoints.Clear();
+        for (int i = checkpointList.Count - 1; i >= 0; i--)
+        {
+            PlayerCheckpoint item = checkpointList[i];
+            _activeCheckpoints.Push(item);
+        }
     }
 }

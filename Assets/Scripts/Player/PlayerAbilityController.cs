@@ -43,4 +43,15 @@ public class PlayerAbilityController : MonoBehaviour
         _abilityReady = ready;
         _readyEffect.enabled = ready;
     }
+
+    public void ResetAbilityVisual()
+    {
+        if (_abilityReady)
+            _readyEffect.enabled = true;
+    }
+
+    public void DisableAbilityVisual()
+    {
+        _readyEffect.enabled = false;
+    }
 }

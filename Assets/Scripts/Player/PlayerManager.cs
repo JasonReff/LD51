@@ -7,6 +7,7 @@ using System;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
+    private PlayerMovement _playerMovement;
     [SerializeField] private PlayerAbilityController _abilityController;
     [SerializeField] private Animator _tombstoneAnimator;
     [SerializeField] private SpriteRenderer _player, _ghost, _tombstone;
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        _playerMovement = GetComponent<PlayerMovement>();
         _player = GetComponent<SpriteRenderer>();
         _player.sprite = _selectedCharacter.SelectedCharacter.CharacterSprite;
         GetComponent<Animator>().runtimeAnimatorController = _selectedCharacter.SelectedCharacter.CharacterAnimatorController;
@@ -50,21 +52,32 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator GhostAnimation()
     {
+        _playerMovement.CanMove = false;
+        _abilityController.DisableAbilityVisual();
         AudioManager.PlaySoundEffect(_deathSound);
         Time.timeScale = 0f;
-        _player.enabled = false;
-        _tombstone.enabled = true;
-        _tombstoneAnimator.enabled = true;
-        yield return new WaitForSecondsRealtime(_tombstoneDuration);
-        _ghost.enabled = true;
-        _ghost.sprite = _player.sprite;
-        _ghost.DOFade(0f, _ghostRiseDuration).SetUpdate(true);
-        _ghost.transform.DOLocalMoveY(_ghost.transform.localPosition.y + _ghostRiseDistance, _ghostRiseDuration).SetUpdate(true);
-        yield return new WaitForSecondsRealtime(_ghostRiseDuration);
+        yield return StartCoroutine(GraveCoroutine());
+        yield return StartCoroutine(GhostCoroutine());
         OnPlayerDeath?.Invoke();
         _isVisibleToEnemies = false;
         _tombstone.enabled = false;
         GetComponent<Collider2D>().enabled = false;
+
+        IEnumerator GraveCoroutine()
+        {
+            _player.enabled = false;
+            _tombstone.enabled = true;
+            _tombstoneAnimator.enabled = true;
+            yield return new WaitForSecondsRealtime(_tombstoneDuration);
+        }
+        IEnumerator GhostCoroutine()
+        {
+            _ghost.enabled = true;
+            _ghost.sprite = _player.sprite;
+            _ghost.DOFade(0f, _ghostRiseDuration).SetUpdate(true);
+            _ghost.transform.DOLocalMoveY(_ghost.transform.localPosition.y + _ghostRiseDistance, _ghostRiseDuration).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(_ghostRiseDuration);
+        }
     }
 
     public void SetKey(int keyID, bool key)
@@ -80,6 +93,8 @@ public class PlayerManager : MonoBehaviour
 
     public void ResetLife()
     {
+        _abilityController.ResetAbilityVisual();
+        _playerMovement.CanMove = true;
         _player.enabled = true;
         _ghost.enabled = false;
         _tombstone.enabled = false;
