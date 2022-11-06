@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tool: {fileID: 11400000, guid: a3da50bf059861942822c053d2bd22d4, type: 2}
+  _image: {fileID: 6381751799362360396}
 --- !u!114 &1484210561505065443
 MonoBehaviour:
   m_ObjectHideFlags: 0

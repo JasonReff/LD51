@@ -6,20 +6,22 @@ namespace LevelEditor
     public class LevelEditorManager : MonoBehaviour
     {
         [SerializeField] private LevelEditorTool _equippedTool;
+        public LevelEditorTool EquippedTool { get => _equippedTool; }
         [SerializeField] private Tilemap _highlightTilemap;
         [SerializeField] private LevelEditorTilemap _wallTilemap, _floorTilemap;
         private Camera _main;
         private GameObject _toolHighlight;
 
+
         private void OnEnable()
         {
             _main = Camera.main;
-            EquipTool.OnToolEquipped += SetTool;
+            LevelEditorEquippable.OnToolEquipped += SetTool;
         }
 
         private void OnDisable()
         {
-            EquipTool.OnToolEquipped -= SetTool;
+            LevelEditorEquippable.OnToolEquipped -= SetTool;
         }
 
         private void SetTool(LevelEditorTool tool)

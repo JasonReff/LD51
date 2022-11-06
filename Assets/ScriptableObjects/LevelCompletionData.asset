@@ -23,8 +23,8 @@ MonoBehaviour:
   - StageName: Level1-1
     CharactersCompleted:
     - Character: {fileID: 11400000, guid: e6995cfe5d4ba5b4d92b8c69f9f48656, type: 2}
-      CompletionStatus: 0
-      BestCompletionTime: 120
+      CompletionStatus: 1
+      BestCompletionTime: 60.5
     - Character: {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
       CompletionStatus: 0
       BestCompletionTime: 120

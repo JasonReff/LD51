@@ -1,12 +1,20 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LevelEditor
 {
-    public class EquipTool : MonoBehaviour
+    public class EquipTool : LevelEditorEquippable
     {
         [SerializeField] private LevelEditorTool _tool;
-        public static event Action<LevelEditorTool> OnToolEquipped;
+        public LevelEditorTool Tool { get => _tool; }
+        [SerializeField] private Image _image;
+
+        public void Initialize(LevelEditorTool tool)
+        {
+            _tool = tool;
+            _image.sprite = tool.ToolSprite;
+        }
 
         public void Equip()
         {
