@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private bool _isVisibleToEnemies = true;
     public static event Action<bool, int> OnKeyChanged;
     public static event Action OnPlayerDeath;
+    
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class PlayerManager : MonoBehaviour
         _playerMovement.CanMove = false;
         _abilityController.DisableAbilityVisual();
         AudioManager.PlaySoundEffect(_deathSound);
-        Time.timeScale = 0f;
+        GetComponent<TimeFreeze>().FreezeTime(true);
         yield return StartCoroutine(GraveCoroutine());
         yield return StartCoroutine(GhostCoroutine());
         OnPlayerDeath?.Invoke();
@@ -102,4 +103,6 @@ public class PlayerManager : MonoBehaviour
         _isVisibleToEnemies = true;
         GetComponent<Collider2D>().enabled = true;
     }
+
+    
 }
