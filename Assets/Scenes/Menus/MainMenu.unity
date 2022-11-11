@@ -6316,6 +6316,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3258a9d0e88bac40956f0bd94a541f3, type: 2}
   - {fileID: 11400000, guid: 5617ad441a28a1d469ea1e198d5b744b, type: 2}
   - {fileID: 11400000, guid: 91d7c87ba06c09c488ab9a679351d61d, type: 2}
+  - {fileID: 11400000, guid: ef6272842cb90604ea314bc25d4caba5, type: 2}
   _characterSelectData: {fileID: 11400000, guid: 86037dc3ea3992c47bd40276ded3dc70, type: 2}
   _characterDisplay: {fileID: 174395385}
   _levelSelectCharacterDisplay: {fileID: 1905351996}
