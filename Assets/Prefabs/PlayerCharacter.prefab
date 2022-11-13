@@ -406,6 +406,7 @@ MonoBehaviour:
   playerSpeed: 5
   _animator: {fileID: 670405945270473841}
   IsDashing: 0
+  CanMove: 1
 --- !u!114 &4030473611404702411
 MonoBehaviour:
   m_ObjectHideFlags: 0
