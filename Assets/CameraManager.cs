@@ -12,7 +12,6 @@ public class CameraManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Debug.Log("Cycling Camera");
             CycleCamera();
         }
     }
