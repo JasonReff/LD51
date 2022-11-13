@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &840529567086136056
@@ -100,12 +100,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alwaysVisible: 1
-  goesThroughWalls: 0
   _visionRadius: 5
   _patrolPoints:
-  - {x: 5, y: 3}
-  - {x: -5, y: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   _detectsPlayer: 1
+  _reverseOnFinish: 0
+  _detectsPlayerThroughWall: 0
+  _runsFromPlayer: 0
+  _visionAngle: 90
+  _gizmoColor: {r: 1, g: 0, b: 0, a: 0.25}
+  OnlyDetectsForward: 0
 --- !u!61 &840529567086136057
 BoxCollider2D:
   m_ObjectHideFlags: 0

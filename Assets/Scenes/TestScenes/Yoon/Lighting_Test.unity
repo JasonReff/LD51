@@ -737,7 +737,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -766,7 +766,7 @@ SpriteRenderer:
   m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &81574298
@@ -3913,6 +3913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377e8a412e0b7454f9876a7f600bc540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!1001 &412776763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7503,6 +7504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377e8a412e0b7454f9876a7f600bc540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!1001 &839019280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12499,9 +12501,15 @@ MonoBehaviour:
   alwaysVisible: 1
   _visionRadius: 5
   _patrolPoints:
-  - {x: 8.1, y: 3}
-  - {x: 8.2, y: -3}
+  - {fileID: 0}
+  - {fileID: 0}
   _detectsPlayer: 1
+  _reverseOnFinish: 0
+  _detectsPlayerThroughWall: 0
+  _runsFromPlayer: 0
+  _visionAngle: 90
+  _gizmoColor: {r: 1, g: 0, b: 0, a: 0.25}
+  OnlyDetectsForward: 0
 --- !u!212 &1317571300
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12522,7 +12530,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12551,7 +12559,7 @@ SpriteRenderer:
   m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1317571301
@@ -14084,6 +14092,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e30781543760d242b8c7ca80d7c1774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityController: {fileID: 0}
+  _tombstoneAnimator: {fileID: 0}
+  _player: {fileID: 0}
+  _ghost: {fileID: 0}
+  _tombstone: {fileID: 0}
+  _deathDuration: 3
+  _ghostRiseDuration: 1
+  _ghostRiseDistance: 1
+  _tombstoneDuration: 1
+  _deathSound: {fileID: 0}
+  _selectedCharacter: {fileID: 0}
+  _isVisibleToEnemies: 1
 --- !u!114 &1513913667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14097,6 +14117,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  _animator: {fileID: 0}
+  IsDashing: 0
+  CanMove: 0
 --- !u!212 &1513913668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14117,7 +14140,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14146,7 +14169,7 @@ SpriteRenderer:
   m_Size: {x: 3.23, y: 4.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1513913669
@@ -14660,7 +14683,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14756,6 +14779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a960d1178ba10946a0bd4c3e99faf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
   _lightningDelay: 9
   _lightningDuration: 1
   _initialDelay: 3
@@ -16465,7 +16489,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20025,6 +20049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377e8a412e0b7454f9876a7f600bc540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!1001 &2077410536
 PrefabInstance:
   m_ObjectHideFlags: 0
