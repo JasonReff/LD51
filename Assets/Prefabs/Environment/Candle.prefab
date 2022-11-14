@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6914789706611300410}
   - component: {fileID: 7977602631990343941}
   - component: {fileID: 5585426664623467013}
+  - component: {fileID: -7605408321600831880}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,3 +191,16 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _playerOnly: 0
+--- !u!114 &-7605408321600831880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391550809864052713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b3ae8d056c3474796cb2eef12e003e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraSettings: {fileID: 11400000, guid: 250dbd324cd590e44a5739306d1722c8, type: 2}

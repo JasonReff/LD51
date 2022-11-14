@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CameraSettingsData
   m_EditorClassIdentifier: 
   PostProcessing: 1
+  ClassicLighting: 0
