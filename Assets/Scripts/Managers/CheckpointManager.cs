@@ -26,13 +26,13 @@ public class CheckpointManager : MonoBehaviour
     {
         if (_activeCheckpoints.Count == 0)
         {
-            Time.timeScale = 1;
+            GetComponent<TimeFreeze>().FreezeTime(false);
             SceneLoader.Instance.ReloadScene(true);
             return;
         }
         else
         {
-            Time.timeScale = 1;
+            GetComponent<TimeFreeze>().FreezeTime(false);
             StartCoroutine(RespawnCoroutine());
         }
 

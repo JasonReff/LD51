@@ -8,6 +8,16 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
     [SerializeField] private SoundSettingsData _soundSettings;
     private static float _minPitch = 0.9f, _maxpitch = 1.1f, _fadeDuration = 0.25f;
 
+    private void OnEnable()
+    {
+        TimeFreeze.OnTimeFrozen += OnTimeFrozen;
+    }
+
+    private void OnDisable()
+    {
+        TimeFreeze.OnTimeFrozen -= OnTimeFrozen;
+    }
+
     private void Start()
     {
         _masterVolume = _soundSettings.MasterVolume;
@@ -75,5 +85,12 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
     public static float MasterVolume()
     {
         return Instance._masterVolume;
+    }
+
+    private void OnTimeFrozen(bool frozen)
+    {
+        if (frozen)
+            _gameMusic.Pause();
+        else _gameMusic.UnPause();
     }
 }
