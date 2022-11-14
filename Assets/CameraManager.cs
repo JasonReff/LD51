@@ -8,6 +8,12 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private List<CinemachineVirtualCamera> _cameras;
     [SerializeField] private CinemachineBrain _brain;
 
+    private void Start()
+    {
+        if (_brain == null)
+            _brain = FindObjectOfType<CinemachineBrain>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
