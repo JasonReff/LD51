@@ -5,6 +5,7 @@ public class DarknessSource : MonoBehaviour, IClassicLight
 {
     private List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
     [SerializeField] private ParticleSystem _smokeSystem;
+    private bool _isClassic;
 
     private void Start()
     {

@@ -7,6 +7,8 @@ public class LightSource : MonoBehaviour, IClassicLight
     private List<Collider2D> contacts = new List<Collider2D>();
     [SerializeField] private Animator _animator;
     private bool _isSnuffed;
+    private bool _isClassic;
+
     public bool IsSnuffed { get => _isSnuffed; }
 
     private void Start()
@@ -19,6 +21,7 @@ public class LightSource : MonoBehaviour, IClassicLight
         Relight();
         if (_animator != null)
             _animator.SetBool("Lit", true);
+        SetLight(!_isClassic);
     }
 
     private void OnDisable()
@@ -26,6 +29,7 @@ public class LightSource : MonoBehaviour, IClassicLight
         SnuffOut();
         if (_animator != null)
             _animator.SetBool("Lit", false);
+        SetLight(false);
     }
 
     public void Snuff()
@@ -56,7 +60,8 @@ public class LightSource : MonoBehaviour, IClassicLight
     private void SnuffOut()
     {
         _isSnuffed = true;
-        SetContacts(false);
+        if (_isClassic)
+            SetContacts(false);
     }
 
     private void SetContacts(bool visible)
@@ -72,20 +77,26 @@ public class LightSource : MonoBehaviour, IClassicLight
         if (_isSnuffed)
         {
             _isSnuffed = false;
-            SetContacts(true);
+            if (_isClassic)
+                SetContacts(true);
         }
     }
 
     public void SetClassicMode(bool classic)
     {
-        if (TryGetComponent(out Light2D light))
-        {
-            light.enabled = !classic;
-        }
+        _isClassic = classic;
+        SetLight(!_isClassic);
         if (!classic)
         {
-            enabled = false;
             SetContacts(true);
+        }
+    }
+
+    private void SetLight(bool lit)
+    {
+        if (TryGetComponent(out Light2D light))
+        {
+            light.enabled = lit;
         }
     }
 }

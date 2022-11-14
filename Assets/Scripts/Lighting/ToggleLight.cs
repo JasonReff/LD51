@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class ToggleLight : MonoBehaviour, IClassicLight
 {
     [SerializeField] private Material _classicMaterial, _litMaterial;
-    protected bool _isLightningStriking;
+    protected bool _isLightningStriking, _isClassic;
     private List<Collider2D> colliders;
     private SpriteRenderer _sr;
     protected float _fadeDuration = 0.5f;
@@ -122,6 +122,7 @@ public class ToggleLight : MonoBehaviour, IClassicLight
 
     public void SetClassicMode(bool classic)
     {
+        _isClassic = classic;
         if (classic)
         {
             _sr.material = _classicMaterial;
