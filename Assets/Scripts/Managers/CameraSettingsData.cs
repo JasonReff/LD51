@@ -4,4 +4,5 @@
 public class CameraSettingsData : ScriptableObject
 {
     public bool PostProcessing;
+    public bool ClassicLighting;
 }

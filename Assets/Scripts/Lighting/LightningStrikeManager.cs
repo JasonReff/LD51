@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 
-public class LightningStrikeManager : SingletonMonobehaviour<LightningStrikeManager>
+public class LightningStrikeManager : SingletonMonobehaviour<LightningStrikeManager>, IClassicLight
 {
     private Coroutine _lightningCoroutine;
+    [SerializeField] private bool _isClassicMode;
     [SerializeField] private float _lightningDelay, _lightningDuration, _initialDelay;
     public static event Action OnLightningStrikeStart, OnLightningStrikeEnd;
     [SerializeField] private Light2D _light;
@@ -24,8 +25,13 @@ public class LightningStrikeManager : SingletonMonobehaviour<LightningStrikeMana
 
     private IEnumerator LightningCoroutine()
     {
-        StartCoroutine(FlickerCoroutine());
+        if (!_isClassicMode)
+            StartCoroutine(FlickerCoroutine());
+        else
+            OnLightningStrikeStart?.Invoke();
         yield return new WaitForSeconds(_lightningDuration);
+        if (_isClassicMode)
+            OnLightningStrikeEnd?.Invoke();
         yield return new WaitForSeconds(_lightningDelay);
         _lightningCoroutine = StartCoroutine(LightningCoroutine());
     }
@@ -55,5 +61,10 @@ public class LightningStrikeManager : SingletonMonobehaviour<LightningStrikeMana
             _light.intensity = value;
             yield return null;
         }
+    }
+
+    public void SetClassicMode(bool classic)
+    {
+        _isClassicMode = classic;
     }
 }

@@ -2,9 +2,11 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
-public class ToggleLight : MonoBehaviour
+public class ToggleLight : MonoBehaviour, IClassicLight
 {
+    [SerializeField] private Material _classicMaterial, _litMaterial;
     protected bool _isLightningStriking;
     private List<Collider2D> colliders;
     private SpriteRenderer _sr;
@@ -22,9 +24,13 @@ public class ToggleLight : MonoBehaviour
         LightningStrikeManager.OnLightningStrikeStart -= OnLightningStrikeStart;
     }
 
-    private void Start()
+    private void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         if (LightningStrikeManager.Instance != null)
             ChangeVisibilityTweenless(false);
     }
@@ -113,4 +119,31 @@ public class ToggleLight : MonoBehaviour
             ChangeVisibilityTweenless(true);
         }
     }
+
+    public void SetClassicMode(bool classic)
+    {
+        if (classic)
+        {
+            _sr.material = _classicMaterial;
+            if (TryGetComponent(out ShadowCaster2D shadow))
+            {
+                shadow.enabled = false;
+            }
+        }
+        else
+        {
+            _sr.material = _litMaterial;
+            if (TryGetComponent(out ShadowCaster2D shadow))
+            {
+                shadow.enabled = true;
+            }
+            enabled = false;
+            ChangeAlpha(1f);
+        }
+    }
+}
+
+public interface IClassicLight
+{
+    public void SetClassicMode(bool classic);
 }

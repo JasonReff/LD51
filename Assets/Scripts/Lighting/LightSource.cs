@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-public class LightSource : MonoBehaviour
+public class LightSource : MonoBehaviour, IClassicLight
 {
     private List<Collider2D> contacts = new List<Collider2D>();
     [SerializeField] private Animator _animator;
@@ -71,6 +72,19 @@ public class LightSource : MonoBehaviour
         if (_isSnuffed)
         {
             _isSnuffed = false;
+            SetContacts(true);
+        }
+    }
+
+    public void SetClassicMode(bool classic)
+    {
+        if (TryGetComponent(out Light2D light))
+        {
+            light.enabled = !classic;
+        }
+        if (!classic)
+        {
+            enabled = false;
             SetContacts(true);
         }
     }

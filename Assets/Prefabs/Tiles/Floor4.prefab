@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5558732610092496875}
   - component: {fileID: -2068028246876242194}
   - component: {fileID: -4438588168690503292}
+  - component: {fileID: 4044272782807655261}
   m_Layer: 0
   m_Name: Floor4
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5042f04e49909449bc6c91f8c0c304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _classicMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  _litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
 --- !u!114 &-4438588168690503292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +158,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
+--- !u!114 &4044272782807655261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810422148140860057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b3ae8d056c3474796cb2eef12e003e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraSettings: {fileID: 11400000, guid: 250dbd324cd590e44a5739306d1722c8, type: 2}
