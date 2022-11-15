@@ -76,8 +76,9 @@ public class PatrolEnemy : EnemyBase
         OnWarp?.Invoke();
     }
 
-    private void OnDrawGizmos()
+    protected override void OnDrawGizmos()
     {
+        base.OnDrawGizmos();
         Gizmos.color = _gizmoColor;
         foreach (var point in _patrolPoints)
         {
