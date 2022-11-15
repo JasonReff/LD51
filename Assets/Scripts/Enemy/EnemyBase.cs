@@ -42,6 +42,11 @@ public abstract class EnemyBase : MonoBehaviour
         _state = newState;
         _state.BeginState();
     }
+
+    protected virtual void OnDrawGizmos()
+    {
+        
+    }
 }
 
 public class EnemyState
@@ -119,6 +124,11 @@ public class EnemyState
             return false;
         }
     }
+
+    protected void SetDestination(Vector2 destination)
+    {
+        _stateMachine.Agent.SetDestination(destination);
+    }
 }
 
 public class ChaseState : EnemyState
@@ -188,7 +198,7 @@ public class PatrolState : EnemyState
         _runsFromPlayer = _patrolEnemy.RunsFromPlayer;
         _visionAngleThreshold = _patrolEnemy.VisionAngle;
         _onlyDetectsForward = _patrolEnemy.OnlyDetectsForward;
-        _stateMachine.Agent.SetDestination(_patrolPoints[0]);
+        SetDestination(_patrolPoints[0]);
         
     }
 
@@ -197,7 +207,7 @@ public class PatrolState : EnemyState
         if (_patrolPoints.Count == 0 | _nextPatrolPointIndex >= _patrolPoints.Count) return;
         if ((Vector2)_stateMachine.transform.position == _patrolPoints[_nextPatrolPointIndex])
             ChoosePatrolPoint();
-        _stateMachine.Agent.SetDestination(_patrolPoints[_nextPatrolPointIndex]);
+        SetDestination(_patrolPoints[_nextPatrolPointIndex]);
         AttemptDetectPlayer();
     }
 
@@ -226,7 +236,7 @@ public class PatrolState : EnemyState
                 _nextPatrolPointIndex--;
             }
         }
-        _stateMachine.Agent.SetDestination(_patrolPoints[_nextPatrolPointIndex]);
+        SetDestination(_patrolPoints[_nextPatrolPointIndex]);
     }
 
     private void ResetPatrolPoints()
@@ -237,10 +247,10 @@ public class PatrolState : EnemyState
 
 public class AvoidState : EnemyState
 {
-    private float _optimalDistance = 2f;
+    private float _optimalDistance = 3f;
     public AvoidState(EnemyBase stateMachine) : base(stateMachine)
     {
-        
+
     }
 
     public override void UpdateState()
@@ -254,9 +264,35 @@ public class AvoidState : EnemyState
 
     private void RunFromPlayer() 
     {
-        var vectorFromPlayer = Vector3.Normalize(_stateMachine.transform.position - _playerTransform.position);
-        var newPosition = _stateMachine.transform.position + vectorFromPlayer * _optimalDistance;
-        _stateMachine.Agent.SetDestination(newPosition);
+        var transform = _stateMachine.transform;
+        var vectorFromPlayer = Vector3.Normalize(transform.position - _playerTransform.position);
+        var newPosition = transform.position + vectorFromPlayer * _optimalDistance;
+        if (IsHittingWall(newPosition))
+        {
+            List<Vector2> perpendiculars = new List<Vector2>();
+            var rightDirection = Vector3.Normalize(Quaternion.Euler(0, 0, 90f) * (transform.position - _playerTransform.position)) * _optimalDistance;
+            var leftDirection = Vector3.Normalize(Quaternion.Euler(0, 0, -90f) * (transform.position - _playerTransform.position)) * _optimalDistance;
+            perpendiculars.Add(rightDirection + transform.position);
+            perpendiculars.Add(leftDirection + transform.position);
+            perpendiculars = perpendiculars.ShuffleAndCopy();
+            perpendiculars.RemoveAll(t => IsHittingWall(t));
+            if (perpendiculars.Count > 0) newPosition = perpendiculars[0];
+        }
+        SetDestination(newPosition);
+    }
+
+    private bool IsHittingWall(Vector2 newPosition)
+    {
+        List<RaycastHit2D> results = new List<RaycastHit2D>();
+        int hits = Physics2D.Linecast(_stateMachine.transform.position, newPosition, new ContactFilter2D().NoFilter(), results);
+        foreach (var hit in results)
+        {
+            if (hit.transform.gameObject.tag == "Wall")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void CheckForPatrolState()
@@ -310,7 +346,7 @@ public class DestinationState : EnemyState
             return;
         }
         AttemptDetectPlayer();
-        _stateMachine.Agent.SetDestination(_destination);
+        SetDestination(_destination);
     }
 
 }
