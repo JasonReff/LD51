@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 619663806984662106}
   - component: {fileID: 4737778584508439911}
   - component: {fileID: 4160925065913657723}
+  - component: {fileID: 7023405835043872245}
   m_Layer: 0
   m_Name: SpikeFloor
   m_TagString: Untagged
@@ -127,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5042f04e49909449bc6c91f8c0c304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _classicMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  _litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
 --- !u!114 &619663806984662106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delay: 1
-  _duration: 1
+  _duration: 2
   _animator: {fileID: 4160925065913657723}
   _onActivationSound: {fileID: 0}
   _onDeactivationSound: {fileID: 0}
@@ -196,7 +199,7 @@ Animator:
   m_GameObject: {fileID: 2111247136667803835}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0616bf4c7424d214f9224ff1f3d92fda, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -206,3 +209,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7023405835043872245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111247136667803835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b3ae8d056c3474796cb2eef12e003e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraSettings: {fileID: 11400000, guid: 250dbd324cd590e44a5739306d1722c8, type: 2}
