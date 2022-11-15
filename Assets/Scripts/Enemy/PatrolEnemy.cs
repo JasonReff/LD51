@@ -17,6 +17,8 @@ public class PatrolEnemy : EnemyBase
     [SerializeField] private bool _reverseOnFinish;
     [SerializeField] private bool _detectsPlayerThroughWall;
     [SerializeField] private bool _runsFromPlayer;
+    [Tooltip("For debugging, start enemy in avoid state.")]
+    [SerializeField] private bool _startInRunState;
     [SerializeField] private float _visionAngle = 90f;
     [SerializeField] private Color _gizmoColor = new Color(1f, 0f, 0f, 0.25f);
     public float VisionAngle { get => _visionAngle; }
@@ -30,7 +32,10 @@ public class PatrolEnemy : EnemyBase
     protected override void Start()
     {
         SetNavMeshAgent();
-        ChangeState(new PatrolState(this));
+        if (_startInRunState)
+            ChangeState(new AvoidState(this));
+        else
+            ChangeState(new PatrolState(this));
     }
 
     private void OnEnable()

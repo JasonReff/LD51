@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,8 @@ public abstract class EnemyBase : MonoBehaviour
     protected EnemyState _state;
     [SerializeField] private float _visionRadius;
     public float VisionRadius { get => _visionRadius; }
+    private List<Vector2> _targetPositions = new List<Vector2>();
+    public List<Vector2> TargetPositions => _targetPositions;
 
     protected virtual void Start()
     {
@@ -46,6 +49,15 @@ public abstract class EnemyBase : MonoBehaviour
     protected virtual void OnDrawGizmos()
     {
         
+        foreach (var position in _targetPositions)
+        {
+            if (_targetPositions.IndexOf(position) == 0)
+                Gizmos.color = new Color(0, 1, 0, 0.25f);
+            else
+                Gizmos.color = new Color(0, 0, 1, 0.25f);
+            Gizmos.DrawSphere(position, 0.25f);
+            Gizmos.DrawLine(PlayerManager.Instance.transform.position, position);
+        }
     }
 }
 
@@ -247,7 +259,10 @@ public class PatrolState : EnemyState
 
 public class AvoidState : EnemyState
 {
-    private float _optimalDistance = 3f;
+    private float _optimalDistance = 1.5f, _runCheckRate = 0.01f;
+    private bool _isRunning;
+    private List<Vector2> _verticalDirections = new List<Vector2>() { Vector2.up + new Vector2(0.0001f, 0f), Vector2.down + new Vector2(0.0001f, 0f) };
+    private List<Vector2> _horizontalDirections = new List<Vector2>() { Vector2.left, Vector2.right };
     public AvoidState(EnemyBase stateMachine) : base(stateMachine)
     {
 
@@ -264,21 +279,49 @@ public class AvoidState : EnemyState
 
     private void RunFromPlayer() 
     {
+        if (_isRunning == false)
+        {
+            _stateMachine.StartCoroutine(RunCoroutine());
+        }
+    }
+
+    private IEnumerator RunCoroutine()
+    {
+        _isRunning = true;
         var transform = _stateMachine.transform;
         var vectorFromPlayer = Vector3.Normalize(transform.position - _playerTransform.position);
         var newPosition = transform.position + vectorFromPlayer * _optimalDistance;
-        if (IsHittingWall(newPosition))
+        List<Vector2> pivotedDirections = new List<Vector2>();
+        var movementPositions = new List<Vector2>();
+        foreach (var direction in _verticalDirections)
         {
-            List<Vector2> perpendiculars = new List<Vector2>();
-            var rightDirection = Vector3.Normalize(Quaternion.Euler(0, 0, 90f) * (transform.position - _playerTransform.position)) * _optimalDistance;
-            var leftDirection = Vector3.Normalize(Quaternion.Euler(0, 0, -90f) * (transform.position - _playerTransform.position)) * _optimalDistance;
-            perpendiculars.Add(rightDirection + transform.position);
-            perpendiculars.Add(leftDirection + transform.position);
-            perpendiculars = perpendiculars.ShuffleAndCopy();
-            perpendiculars.RemoveAll(t => IsHittingWall(t));
-            if (perpendiculars.Count > 0) newPosition = perpendiculars[0];
+            var adjustedDirection = direction * _optimalDistance + (Vector2)transform.position;
+            movementPositions.Add(PivotOffWall(adjustedDirection, Vector2.right));
         }
+        foreach (var direction in _horizontalDirections)
+        {
+            var adjustedDirection = direction * _optimalDistance + (Vector2)transform.position;
+            movementPositions.Add(PivotOffWall(adjustedDirection, Vector2.up));
+        }
+        movementPositions.RemoveAll(t => IsHittingWall(t));
+        movementPositions = movementPositions.OrderByDescending(t => Vector2.SqrMagnitude((Vector2)_playerTransform.position - t)).ToList();
+        if (movementPositions.Count > 0) newPosition = movementPositions[0];
+        _stateMachine.TargetPositions.Clear();
+        _stateMachine.TargetPositions.AddRange(movementPositions);
         SetDestination(newPosition);
+        yield return new WaitForSeconds(_runCheckRate);
+        _isRunning = false;
+    }
+
+    private Vector2 PivotOffWall(Vector2 inputVector, Vector2 perpendicularAxis)
+    {
+        if (IsHittingWall(inputVector + perpendicularAxis))
+        {
+            return (inputVector - perpendicularAxis);
+        }
+        else if (IsHittingWall(inputVector - perpendicularAxis))
+            return inputVector + perpendicularAxis;
+        else return inputVector;
     }
 
     private bool IsHittingWall(Vector2 newPosition)
