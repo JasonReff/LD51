@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 7810422148140860053, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -848481706, guid: e629d977c5bcc50489a731e79f76a811, type: 3}
+      objectReference: {fileID: 21300000, guid: 7437512bed08e3445ade446cc4c2b50a, type: 3}
     - target: {fileID: 7810422148140860057, guid: b109f453effd8054da04f49677a5fb7a, type: 3}
       propertyPath: m_Name
       value: Wall4_border
