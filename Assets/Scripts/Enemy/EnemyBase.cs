@@ -268,7 +268,7 @@ public class AvoidState : EnemyState
 {
     private PatrolEnemy _patrolEnemy;
     private List<Vector2> _patrolPoints;
-    private float _optimalDistance = 1.5f, _runCheckRate = 0.01f;
+    private float _optimalDistance = 1.5f, _runCheckRate = 0.01f, _wallPivot = 1f;
     private bool _isRunning;
     private List<Vector2> _verticalDirections = new List<Vector2>() { Vector2.up + new Vector2(0.0001f, 0f), Vector2.down + new Vector2(0.0001f, 0f) };
     private List<Vector2> _horizontalDirections = new List<Vector2>() { Vector2.left, Vector2.right };
@@ -276,6 +276,7 @@ public class AvoidState : EnemyState
     {
         _patrolEnemy = _stateMachine as PatrolEnemy;
         _patrolPoints = _patrolEnemy.PatrolPoints;
+        _wallPivot = _patrolEnemy.WallPivot;
     }
 
     public override void UpdateState()
@@ -306,12 +307,12 @@ public class AvoidState : EnemyState
         foreach (var direction in _verticalDirections)
         {
             var adjustedDirection = direction * _optimalDistance + (Vector2)transform.position;
-            movementPositions.Add(PivotOffWall(adjustedDirection, Vector2.right));
+            movementPositions.Add(PivotOffWall(adjustedDirection, Vector2.right * _wallPivot));
         }
         foreach (var direction in _horizontalDirections)
         {
             var adjustedDirection = direction * _optimalDistance + (Vector2)transform.position;
-            movementPositions.Add(PivotOffWall(adjustedDirection, Vector2.up));
+            movementPositions.Add(PivotOffWall(adjustedDirection, Vector2.up * _wallPivot));
         }
         movementPositions.RemoveAll(t => IsHittingWall(t));
         movementPositions = movementPositions.OrderByDescending(t => Vector2.SqrMagnitude((Vector2)_playerTransform.position - t)).ToList();

@@ -77,6 +77,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450615, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: _wallPivot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 371840125030450615, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: _detectsPlayer
       value: 1
       objectReference: {fileID: 0}
