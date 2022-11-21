@@ -14,6 +14,15 @@ public static class GameExtensions
             return list[index + 1];
     }
 
+    public static T GetPrev<T>(this List<T> list, T currentItem)
+    {
+        var index = list.IndexOf(currentItem);
+        if (index == 0)
+            return list[list.Count - 1];
+        else
+            return list[index - 1];
+    }
+
     public static List<T> ShuffleAndCopy<T>(this List<T> list)
     {
         return list.OrderBy(t => UnityEngine.Random.value).ToList();

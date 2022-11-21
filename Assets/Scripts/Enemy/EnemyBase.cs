@@ -195,7 +195,11 @@ public class PatrolState : EnemyState
     private bool _reverseOnFinish;
     private bool _movingInReverse;
     private PatrolEnemy _patrolEnemy;
-    public PatrolState(EnemyBase stateMachine, int nextPoint = 0) : base(stateMachine) { _nextPatrolPointIndex = nextPoint; }
+    public PatrolState(EnemyBase stateMachine, int nextPoint = 0, bool movingInReverse = false) : base(stateMachine) 
+    { 
+        _nextPatrolPointIndex = nextPoint; 
+        _movingInReverse = movingInReverse; 
+    }
 
     public override void BeginState()
     {
@@ -233,7 +237,10 @@ public class PatrolState : EnemyState
     private void ChoosePatrolPoint()
     {
         if (_movingInReverse)
-            _nextPatrolPointIndex--;
+            if (_nextPatrolPointIndex > 0)
+                _nextPatrolPointIndex--;
+            else
+                _nextPatrolPointIndex = _patrolPoints.Count - 1;
         else
             _nextPatrolPointIndex++;
         if (_reverseOnFinish && _nextPatrolPointIndex == 0)
@@ -259,13 +266,16 @@ public class PatrolState : EnemyState
 
 public class AvoidState : EnemyState
 {
+    private PatrolEnemy _patrolEnemy;
+    private List<Vector2> _patrolPoints;
     private float _optimalDistance = 1.5f, _runCheckRate = 0.01f;
     private bool _isRunning;
     private List<Vector2> _verticalDirections = new List<Vector2>() { Vector2.up + new Vector2(0.0001f, 0f), Vector2.down + new Vector2(0.0001f, 0f) };
     private List<Vector2> _horizontalDirections = new List<Vector2>() { Vector2.left, Vector2.right };
     public AvoidState(EnemyBase stateMachine) : base(stateMachine)
     {
-
+        _patrolEnemy = _stateMachine as PatrolEnemy;
+        _patrolPoints = _patrolEnemy.PatrolPoints;
     }
 
     public override void UpdateState()
@@ -342,9 +352,35 @@ public class AvoidState : EnemyState
     {
         if (IsPlayerOutsideVisionRange())
         {
-            _stateMachine.ChangeState(new PatrolState(_stateMachine));
+            var closestPoint = GetClosestPatrolPointIndex();
+            _stateMachine.ChangeState(new PatrolState(_stateMachine, closestPoint, PatrolInReverse(_patrolPoints[closestPoint])));
         }
     }
+
+    private int GetClosestPatrolPointIndex()
+    {
+        if (_patrolPoints.Count < 2)
+            return 0;
+        var twoClosestPoints = _patrolPoints.OrderBy(t => Vector2.SqrMagnitude((Vector2)_stateMachine.transform.position - t)).Take(2).ToList();
+        var furthestFromPlayer = twoClosestPoints.OrderByDescending(t => Vector2.SqrMagnitude(t - (Vector2)PlayerManager.Instance.transform.position)).First();
+        var pointIndex = _patrolPoints.IndexOf(furthestFromPlayer);
+        return pointIndex;
+    }
+
+    private bool PatrolInReverse(Vector2 closestPoint)
+    {
+        if (_patrolPoints.Count < 3)
+            return false;
+        var nextPoint = _patrolPoints.GetNext(closestPoint);
+        var previousPoint = _patrolPoints.GetPrev(closestPoint);
+        if (Vector2.SqrMagnitude((Vector2)PlayerManager.Instance.transform.position - previousPoint) > Vector2.SqrMagnitude((Vector2)PlayerManager.Instance.transform.position - nextPoint))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     
     private void CheckForChaseState()
     {
