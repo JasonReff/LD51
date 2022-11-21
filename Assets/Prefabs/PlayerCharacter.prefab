@@ -568,6 +568,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 4030473611404702409}
     m_Modifications:
+    - target: {fileID: 3117772927329122643, guid: cfc892c3acfeac44d9c86e1c8b94f8ef, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117772927329122643, guid: cfc892c3acfeac44d9c86e1c8b94f8ef, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117772927329122643, guid: cfc892c3acfeac44d9c86e1c8b94f8ef, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4895660911226653609, guid: cfc892c3acfeac44d9c86e1c8b94f8ef, type: 3}
       propertyPath: m_Name
       value: LightSource
