@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PatrolEnemy : EnemyBase
 {
+    [Header("Pathing")]
     [SerializeField] private List<Transform> _patrolPoints;
+    [SerializeField] private bool _reverseOnFinish;
     public List<Vector2> PatrolPoints { get {
             var positions = new List<Vector2>();
             for (int i = 0; i < _patrolPoints.Count; i++)
@@ -12,20 +14,30 @@ public class PatrolEnemy : EnemyBase
                 positions.Add(_patrolPoints[i].position);
             }
             return positions; } }
+    [Space(10)]
+    [Header("Player Detection")]
     [SerializeField] private bool _detectsPlayer;
     public bool DetectsPlayer { get => _detectsPlayer; }
-    [SerializeField] private bool _reverseOnFinish;
+    [SerializeField] private float _visionAngle = 90f;
+    
     [SerializeField] private bool _detectsPlayerThroughWall;
+    public bool OnlyDetectsForward;
+    [Space(10)]
+    [Header("Player Avoidance")]
     [SerializeField] private bool _runsFromPlayer;
+    [SerializeField] private float _wallPivot;
+    public float WallPivot { get => _wallPivot; }
+    [Space(10)]
+    [Header("Debugging")]
     [Tooltip("For debugging, start enemy in avoid state.")]
     [SerializeField] private bool _startInRunState;
-    [SerializeField] private float _visionAngle = 90f;
+    
     [SerializeField] private Color _gizmoColor = new Color(1f, 0f, 0f, 0.25f);
     public float VisionAngle { get => _visionAngle; }
     public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; }
     public bool ReverseOnFinish { get => _reverseOnFinish; }
     public bool RunsFromPlayer { get => _runsFromPlayer; set => _runsFromPlayer = value; }
-    public bool OnlyDetectsForward;
+    
     public event Action OnPatrolPointsChanged;
     public event Action OnWarp;
 
