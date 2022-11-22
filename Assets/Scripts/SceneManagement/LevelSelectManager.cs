@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelectManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] private Transform _levelParent;
     private List<string> _stages = new List<string>();
     [SerializeField] private FloorSelectManager _floorSelect;
+    [SerializeField] private LevelSelectData _levelData;
+    [SerializeField] private Image _enemyImage;
 
     public void GetFloorLevels(string floorNumber)
     {
@@ -38,6 +41,8 @@ public class LevelSelectManager : MonoBehaviour
         foreach (var name in _stages)
             if (name[name.Length - 3].ToString() == floorNumber)
                 SpawnListLevel(name);
+        int floor = int.Parse(floorNumber);
+        LoadEnemySprite(floor);
     }
 
     private void SpawnListLevel(string stageName)
@@ -53,4 +58,8 @@ public class LevelSelectManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void LoadEnemySprite(int floor)
+    {
+        _enemyImage.sprite = _levelData.EnemySprites[floor - 1];
+    }
 }

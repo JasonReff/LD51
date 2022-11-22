@@ -8,6 +8,7 @@ public class FloorSelectManager : MonoBehaviour
     [SerializeField] private LevelCompletionData _completionData;
     [SerializeField] private Transform _floorParent;
     [SerializeField] private LevelSelectManager _levelManager;
+    [SerializeField] private LevelSelectData _levelData;
 
     private void OnEnable()
     {
@@ -35,7 +36,7 @@ public class FloorSelectManager : MonoBehaviour
     private void SpawnFloorButton(string floorNumber)
     {
         var floor = Instantiate(_floorPrefab, _floorParent);
-        floor.Initialize(this, floorNumber);
+        floor.Initialize(this, floorNumber, _levelData.FloorSprites[int.Parse(floorNumber) - 1]);
         _floors.Add(floor);
     }
 

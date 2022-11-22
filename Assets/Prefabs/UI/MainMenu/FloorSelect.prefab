@@ -96,6 +96,7 @@ MonoBehaviour:
   _completionData: {fileID: 11400000, guid: 39ee734b9aa092d4fa521c2d6e320dca, type: 2}
   _floorParent: {fileID: 8223836460714291561}
   _levelManager: {fileID: 0}
+  _levelData: {fileID: 11400000, guid: 5099255b96c54524eabe5d6e4c114771, type: 2}
 --- !u!1 &5309746720622088186
 GameObject:
   m_ObjectHideFlags: 0
