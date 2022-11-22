@@ -89,6 +89,8 @@ public class PlayerManager : MonoBehaviour
 
     public bool IsHoldingKey(int keyID)
     {
+        if (!_playerKeys.ContainsKey(keyID))
+            return false;
         return _playerKeys[keyID];
     }
 

@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4092160e21de645aee3ae71d23be77, type: 3}
   m_Name: Level Select Data
   m_EditorClassIdentifier: 
-  _floorSprites: []
-  _enemySprites: []
+  _floorSprites:
+  - {fileID: 21300000, guid: 6efe88b90671850488a8e05d901623c6, type: 3}
+  - {fileID: 21300000, guid: 9bb25281d06257845a17d8db963873de, type: 3}
+  - {fileID: 21300000, guid: 4508c12d2c9092a4c9ac8df68787bb15, type: 3}
+  - {fileID: 21300000, guid: 7437512bed08e3445ade446cc4c2b50a, type: 3}
+  - {fileID: 21300000, guid: 3de81771f3d159b478bd34f68574fff1, type: 3}
+  - {fileID: 1335557468, guid: 264bd0d2f074c23468617d9c8d8f0196, type: 3}
+  _enemySprites:
+  - {fileID: -352680053, guid: b40abb66151c72c4292c06912a123111, type: 3}
+  - {fileID: 21300000, guid: 67abaee3cd729af438e8dbe9a4fe9c0d, type: 3}
+  - {fileID: -2090737164, guid: bf48edfc08411af498975f0527611078, type: 3}
+  - {fileID: 2063915536, guid: 92a45049d29fa80478c96b732a6cf4f5, type: 3}
+  - {fileID: 21300000, guid: 26a9cbc4a60c4a946a5e5cad8bb65e8a, type: 3}
+  - {fileID: 21300000, guid: 6fa2a265a7a141e47a0f43684af8159d, type: 3}
