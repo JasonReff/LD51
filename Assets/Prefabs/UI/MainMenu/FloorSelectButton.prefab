@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfc13f0bcc0ebf41baad7956879a869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _floorImage: {fileID: 5738423565897102107}
   _floorNumber: 
   _floorTextbox: {fileID: 4097609270982214404}
 --- !u!1 &6409490826717646347
