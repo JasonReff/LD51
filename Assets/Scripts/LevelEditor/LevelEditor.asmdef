@@ -1,7 +1,9 @@
 {
     "name": "LevelEditor",
     "rootNamespace": "LevelEditor",
-    "references": [],
+    "references": [
+        "GUID:30e5906eab9f4a1419e31c91c5e043ea"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

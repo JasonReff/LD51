@@ -4,11 +4,13 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using System.Linq;
+using UnityEngine.UI;
 
 namespace LevelEditor
 {
     public class EquipMenu : LevelEditorEquippable
     {
+        [SerializeField] private Image _image;
         [SerializeField] private LevelEditorManager _manager;
         [SerializeField] private LevelEditorMenu _menu;
         [SerializeField] private List<EquipTool> _tools;
@@ -52,6 +54,7 @@ namespace LevelEditor
         public void Equip()
         {
             OnToolEquipped?.Invoke(_equippedTool);
+            
         }
 
         public void ShowMenu()
@@ -90,6 +93,7 @@ namespace LevelEditor
             if (IsToolInPalette(tool))
             {
                 _equippedTool = _tools.First(t => t.Tool == tool).Tool;
+                _image.sprite = _equippedTool.ToolSprite;
             }
         }
 

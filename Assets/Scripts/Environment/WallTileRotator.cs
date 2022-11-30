@@ -56,7 +56,7 @@ public class WallTileRotator : MonoBehaviour
 
     private bool DoesWallExist(Vector2 wallPosition, Vector2 relativePosition)
     {
-        if (_walls.Any(t => t.localPosition == new Vector3(wallPosition.x + relativePosition.x, wallPosition.y + relativePosition.y, 0)))
+        if (_walls.Any(t => (Vector2)t.localPosition == new Vector2(wallPosition.x + relativePosition.x, wallPosition.y + relativePosition.y)))
             return true;
         return false;
     }

@@ -36,8 +36,9 @@ namespace LevelEditor
         public void EraseGameObject(Vector3Int coordinates, GameObject prefab = null)
         {
             var position = _tilemap.GetCellCenterLocal(coordinates);
-            foreach (var go in _gameObjects)
+            for (int i = _gameObjects.Count - 1; i >= 0; i--)
             {
+                GameObject go = _gameObjects[i];
                 if (prefab == null || (prefab != null && go.name.Contains(prefab.transform.name)))
                 {
                     if (go.transform.localPosition == position)

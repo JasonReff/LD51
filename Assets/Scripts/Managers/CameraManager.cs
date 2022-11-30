@@ -12,6 +12,8 @@ public class CameraManager : MonoBehaviour
     {
         if (_brain == null)
             _brain = FindObjectOfType<CinemachineBrain>();
+        if (_cameras[1].Follow == null)
+            _cameras[1].Follow = PlayerManager.Instance.transform;
     }
 
     private void Update()
