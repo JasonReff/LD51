@@ -13,6 +13,7 @@ namespace LevelEditor
         public Sprite ToolSprite { get => _toolSprite; }
         public bool IsWall;
         public bool IsFloor;
+        public bool IsMechanics;
         public virtual void UseTool(Vector3Int tileCoordinates, LevelEditorTilemap tilemap)
         {
 

@@ -27,22 +27,4 @@ namespace LevelEditor
             }
         }
     }
-
-    public class PlayerStartTool : LevelEditorTool
-    {
-        [SerializeField] private PlayerStart _playerStartPrefab;
-        private PlayerStart _playerStart;
-
-        public override void UseTool(Vector3Int tileCoordinates, LevelEditorTilemap tilemap)
-        {
-            base.UseTool(tileCoordinates, tilemap);
-            if (_playerStart != null)
-            {
-                Destroy(_playerStart.gameObject);
-            }
-            var newStart = Instantiate(_playerStartPrefab);
-            _playerStart = newStart;
-        }
-
-    }
 }

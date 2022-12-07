@@ -2,8 +2,8 @@
 
 namespace LevelEditor
 {
-    public class PlayerStart : MonoBehaviour
+    public class PlayerStart : EditorSpawnObject<PlayerManager>
     {
-        [SerializeField] private PlayerManager _player;
+
     }
 }

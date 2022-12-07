@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+﻿using StormlightManor;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 namespace LevelEditor
 {
@@ -8,7 +13,12 @@ namespace LevelEditor
         [SerializeField] private LevelEditorTool _equippedTool;
         public LevelEditorTool EquippedTool { get => _equippedTool; }
         [SerializeField] private Tilemap _highlightTilemap;
-        [SerializeField] private LevelEditorTilemap _wallTilemap, _floorTilemap;
+        [SerializeField] private LevelEditorTilemap _wallTilemap, _floorTilemap, _mechanicsTilemap;
+        [SerializeField] private LightningStrikeManager _lightningManager;
+        [SerializeField] private Canvas _editorCanvas;
+        [SerializeField] private AudioManager _audioManager;
+        [SerializeField] private CompositeShadowToggle _shadowToggle;
+        [SerializeField] private NavMeshManager _nav;
         private Camera _main;
         private GameObject _toolHighlight;
 
@@ -17,11 +27,20 @@ namespace LevelEditor
         {
             _main = Camera.main;
             LevelEditorEquippable.OnToolEquipped += SetTool;
+            TestButton.OnTestStart += OnTestStart;
+            TestButton.OnTestEnd += OnTestEnd;
         }
 
         private void OnDisable()
         {
             LevelEditorEquippable.OnToolEquipped -= SetTool;
+            TestButton.OnTestStart -= OnTestStart;
+            TestButton.OnTestEnd -= OnTestEnd;
+        }
+
+        private void Start()
+        {
+            _audioManager.enabled = false;
         }
 
         private void SetTool(LevelEditorTool tool)
@@ -29,26 +48,70 @@ namespace LevelEditor
             _equippedTool = tool;
             if (_toolHighlight != null)
                 Destroy(_toolHighlight);
-            if (_equippedTool.Highlight != null)
+            if (_equippedTool != null && _equippedTool.Highlight != null)
                 _toolHighlight = Instantiate(_equippedTool.Highlight);
+        }
+
+        private void Unequip()
+        {
+            SetTool(null);
+        }
+
+        private void OnTestStart()
+        {
+            Unequip();
+            _audioManager.enabled = true;
+            _lightningManager.enabled = true;
+            _editorCanvas.enabled = false;
+            _shadowToggle.enabled = true;
+            _nav.RebakeAllMeshes();
+        }
+
+        private void OnTestEnd()
+        {
+            _audioManager.enabled = false;
+            _lightningManager.enabled = false;
+            _editorCanvas.enabled = true;
+            _shadowToggle.enabled = false;
         }
 
         private void Update()
         {
             var mousePosition = _main.ScreenToWorldPoint(Input.mousePosition);
-            var tile = _highlightTilemap.WorldToCell(mousePosition);
+            Vector3Int tile = _highlightTilemap.WorldToCell(mousePosition);
             if (_toolHighlight != null)
             {
                 if (_toolHighlight)
                     _toolHighlight.transform.position = _highlightTilemap.GetCellCenterWorld(tile);
             }
-            if (_equippedTool != null && Input.GetMouseButtonDown(0))
+            if (_equippedTool != null && Input.GetMouseButton(0))
             {
+                if (IsMouseOverUI())
+                    return;
                 if (_equippedTool.IsFloor)
                     _equippedTool.UseTool(tile, _floorTilemap);
                 if (_equippedTool.IsWall)
                     _equippedTool.UseTool(tile, _wallTilemap);
+                if (_equippedTool.IsMechanics)
+                    _equippedTool.UseTool(tile, _mechanicsTilemap);
             }
         }
+
+
+
+        private bool IsMouseOverUI()
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count > 0;
+        }
+    }
+
+    public class EnemyEditorWindow : MonoBehaviour
+    {
+        private EditorEnemy _enemy;
     }
 }

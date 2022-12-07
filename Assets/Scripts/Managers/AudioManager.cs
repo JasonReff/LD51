@@ -10,16 +10,22 @@ public class AudioManager : SingletonMonobehaviour<AudioManager>
 
     private void OnEnable()
     {
+        foreach (var source in GetComponents<AudioSource>())
+            if (source.playOnAwake)
+                source.Play();
         TimeFreeze.OnTimeFrozen += OnTimeFrozen;
     }
 
     private void OnDisable()
     {
+        foreach (var source in GetComponents<AudioSource>())
+            source.Stop();
         TimeFreeze.OnTimeFrozen -= OnTimeFrozen;
     }
 
     private void Start()
     {
+        
         _masterVolume = _soundSettings.MasterVolume;
         SetMusicVolume(_soundSettings.MusicVolume);
         SetEffectsVolume(_soundSettings.EffectsVolume);

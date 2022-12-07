@@ -24,13 +24,14 @@ namespace LevelEditor
             return false;
         }
 
-        public void PaintGameObject(GameObject prefab, Vector3Int coordinates)
+        public GameObject PaintGameObject(GameObject prefab, Vector3Int coordinates)
         {
             var position = _tilemap.GetCellCenterWorld(coordinates);
             if (DoesObjectExist(prefab, position))
-                return;
+                return null;
             var go = Instantiate(prefab, position, prefab.transform.rotation, transform);
             _gameObjects.Add(go);
+            return go;
         }
 
         public void EraseGameObject(Vector3Int coordinates, GameObject prefab = null)
@@ -48,6 +49,12 @@ namespace LevelEditor
                     }
                 }
             }
+        }
+
+        public void RemoveGameObject(GameObject go)
+        {
+            _gameObjects.Remove(go);
+            Destroy(go);
         }
     }
 }

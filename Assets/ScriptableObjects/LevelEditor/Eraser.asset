@@ -16,4 +16,5 @@ MonoBehaviour:
   _toolSprite: {fileID: 1629704171, guid: 1c5263b42f468374eb4a0278f1478d4b, type: 3}
   IsWall: 1
   IsFloor: 0
-  _eraseAllObjects: 0
+  IsMechanics: 0
+  _eraseAllObjects: 1

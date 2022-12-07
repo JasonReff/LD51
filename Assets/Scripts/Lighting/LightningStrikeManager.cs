@@ -27,11 +27,9 @@ public class LightningStrikeManager : SingletonMonobehaviour<LightningStrikeMana
     {
         if (!_isClassicMode)
             StartCoroutine(FlickerCoroutine());
-        else
-            OnLightningStrikeStart?.Invoke();
+        OnLightningStrikeStart?.Invoke();
         yield return new WaitForSeconds(_lightningDuration);
-        if (_isClassicMode)
-            OnLightningStrikeEnd?.Invoke();
+        OnLightningStrikeEnd?.Invoke();
         yield return new WaitForSeconds(_lightningDelay);
         _lightningCoroutine = StartCoroutine(LightningCoroutine());
     }
