@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15887554b5eef9e42b4b38f9da7a23b7, type: 3}
-  m_Name: Floor2
+  m_Script: {fileID: 11500000, guid: a5d29ab4b7f00694e93441a83f19e59c, type: 3}
+  m_Name: FloorMenu
   m_EditorClassIdentifier: 
   _highlight: {fileID: 7936419608476149580, guid: 15854d1e713daad4aab9e2df5bd6510c, type: 3}
-  _toolSprite: {fileID: -809135615, guid: 6872c2579880668438a8169fb3a4f7ba, type: 3}
+  _toolSprite: {fileID: 1335557468, guid: 264bd0d2f074c23468617d9c8d8f0196, type: 3}
   IsWall: 0
-  IsFloor: 1
+  IsFloor: 0
   IsMechanics: 0
-  _tilePrefab: {fileID: 807391289430317265, guid: 76b300011c74ccf48b14c236c71de8da, type: 3}
+  _tools:
+  - {fileID: 11400000, guid: a3da50bf059861942822c053d2bd22d4, type: 2}
+  _selectedTool: {fileID: 0}

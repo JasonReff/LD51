@@ -27,15 +27,17 @@ namespace LevelEditor
         {
             _main = Camera.main;
             LevelEditorEquippable.OnToolEquipped += SetTool;
-            TestButton.OnTestStart += OnTestStart;
+            TestButton.BakeTilemap += OnTestStart;
             TestButton.OnTestEnd += OnTestEnd;
+            EditorEnemy.OnEnemyClicked += OnEnemyClicked;
         }
 
         private void OnDisable()
         {
             LevelEditorEquippable.OnToolEquipped -= SetTool;
-            TestButton.OnTestStart -= OnTestStart;
+            TestButton.BakeTilemap -= OnTestStart;
             TestButton.OnTestEnd -= OnTestEnd;
+            EditorEnemy.OnEnemyClicked -= OnEnemyClicked;
         }
 
         private void Start()
@@ -57,6 +59,11 @@ namespace LevelEditor
             SetTool(null);
         }
 
+        private void OnEnemyClicked(EditorEnemy enemy)
+        {
+            Unequip();
+        }
+
         private void OnTestStart()
         {
             Unequip();
@@ -64,7 +71,7 @@ namespace LevelEditor
             _lightningManager.enabled = true;
             _editorCanvas.enabled = false;
             _shadowToggle.enabled = true;
-            _nav.RebakeAllMeshes();
+            _nav.RebakePlaymodeNavMeshes();
         }
 
         private void OnTestEnd()
@@ -108,10 +115,5 @@ namespace LevelEditor
             EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
             return results.Count > 0;
         }
-    }
-
-    public class EnemyEditorWindow : MonoBehaviour
-    {
-        private EditorEnemy _enemy;
     }
 }

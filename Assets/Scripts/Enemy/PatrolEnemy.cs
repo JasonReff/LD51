@@ -60,6 +60,11 @@ public class PatrolEnemy : EnemyBase
         EnemyPriority.OnTrigger -= OnPriorityTrigger;
     }
 
+    public void SetPatrolPoints(List<Transform> points)
+    {
+        _patrolPoints = points;
+    }
+
     public void AddPatrolPoint(Transform patrolPoint)
     {
         _patrolPoints.Add(patrolPoint);

@@ -4,25 +4,17 @@ namespace LevelEditor
 {
     public class EditorSpawnObject<T> : MonoBehaviour where T : MonoBehaviour
     {
-        [SerializeField] private T _prefab;
+        [SerializeField] protected T _prefab;
         [SerializeField] private SpriteRenderer _sr;
-        private T _instance;
-        private void OnEnable()
+        protected T _instance;
+        protected virtual void OnEnable()
         {
-            TestButton.OnTestStart += OnSceneStart;
             TestButton.OnTestEnd += OnSceneEnd;
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
-            TestButton.OnTestStart -= OnSceneStart;
             TestButton.OnTestEnd -= OnSceneEnd;
-        }
-
-        public virtual void OnSceneStart()
-        {
-            _sr.enabled = false;
-            _instance = Instantiate(_prefab, transform.position, transform.rotation);
         }
 
         public virtual void OnSceneEnd()
@@ -31,6 +23,13 @@ namespace LevelEditor
             if (_instance.gameObject != null)
                 Destroy(_instance.gameObject);
             _instance = null;
+        }
+
+        protected void SpawnObject()
+        {
+            _sr.enabled = false;
+            T go = Instantiate(_prefab, transform.position, _prefab.transform.rotation);
+            _instance = go;
         }
     }
 }

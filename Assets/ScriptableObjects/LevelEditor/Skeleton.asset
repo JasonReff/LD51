@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51a74b539a7d0b34e9bdc7998cd98c20, type: 3}
-  m_Name: PlayerStart
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  _highlight: {fileID: 3350725942121937298, guid: 5ec3d1c22a4e19d4d8bb922fada10066, type: 3}
-  _toolSprite: {fileID: 21300000, guid: 45899c9698699be48859ca8c83ebde18, type: 3}
+  _highlight: {fileID: 5323450186286709872, guid: 29ba37a563dcbbc479fc18e7ab81eb1f, type: 3}
+  _toolSprite: {fileID: -352680053, guid: b40abb66151c72c4292c06912a123111, type: 3}
   IsWall: 0
   IsFloor: 0
   IsMechanics: 1
-  _playerStartPrefab: {fileID: 4030473611404702415, guid: 63166069cf80662439e0f46c68ad1942, type: 3}
-  _singleton: 1
+  _playerStartPrefab: {fileID: 3848876041022846611, guid: b0faf5ad2acc2ce4aa8da714dbffd885, type: 3}

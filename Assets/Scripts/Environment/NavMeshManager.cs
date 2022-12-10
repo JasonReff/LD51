@@ -52,4 +52,10 @@ public class NavMeshManager : MonoBehaviour
         foreach (var mesh in AllMeshes)
             NavMeshAssetManager2d.instance.StartBakingSurfaces(mesh);
     }
+
+    public void RebakePlaymodeNavMeshes()
+    {
+        foreach (var mesh in AllMeshes)
+            mesh.BuildNavMesh();
+    }
 }

@@ -5,10 +5,13 @@ namespace LevelEditor
 {
     public class TestButton : MonoBehaviour
     {
-        public static event Action OnTestStart, OnTestEnd;
+        public static event Action SpawnFloor, BakeTilemap, SpawnPlayer, SpawnEnemies, OnTestEnd;
         public void TestScene()
         {
-            OnTestStart?.Invoke();
+            SpawnFloor?.Invoke();
+            BakeTilemap?.Invoke();
+            SpawnPlayer?.Invoke();
+            SpawnEnemies?.Invoke();
         }
 
         public void EndTest()

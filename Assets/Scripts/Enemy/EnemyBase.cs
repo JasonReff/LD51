@@ -74,7 +74,8 @@ public class EnemyState
     public EnemyState(EnemyBase stateMachine) { _stateMachine = stateMachine; }
     public virtual void BeginState()
     {
-        _playerTransform = PlayerManager.Instance.transform;
+        if (PlayerManager.Instance != null)
+            _playerTransform = PlayerManager.Instance.transform;
     }
 
     public virtual void UpdateState()
@@ -89,6 +90,8 @@ public class EnemyState
 
     protected void AttemptDetectPlayer()
     {
+        if (PlayerManager.Instance == null)
+            return;
         if (!_detectsPlayer | !PlayerManager.Instance.IsVisibleToEnemies)
             return;
         if (_playerTransform == null)
