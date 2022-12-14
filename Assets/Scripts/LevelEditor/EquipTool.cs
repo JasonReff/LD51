@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace LevelEditor
@@ -16,7 +15,7 @@ namespace LevelEditor
             _image.sprite = tool.ToolSprite;
         }
 
-        public void Equip()
+        public virtual void Equip()
         {
             OnToolEquipped?.Invoke(_tool);
         }

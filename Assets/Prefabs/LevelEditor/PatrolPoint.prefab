@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 215426998103846888, guid: 29ba37a563dcbbc479fc18e7ab81eb1f, type: 3}
+      propertyPath: m_Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 215426998103846888, guid: 29ba37a563dcbbc479fc18e7ab81eb1f, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 215426998103846888, guid: 29ba37a563dcbbc479fc18e7ab81eb1f, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5323450186286709872, guid: 29ba37a563dcbbc479fc18e7ab81eb1f, type: 3}
       propertyPath: m_Name
       value: PatrolPoint

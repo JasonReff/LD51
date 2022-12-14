@@ -34,6 +34,7 @@ namespace LevelEditor
         {
             Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = point;
+            Enemy.ShowPath();
         }
 
         private void OnSceneStart()

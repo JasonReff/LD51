@@ -52,10 +52,14 @@ namespace LevelEditor
         {
             foreach (var point in _patrolPoints)
                 point.GetComponent<SpriteRenderer>().enabled = enabled;
+            if (enabled && _patrolPoints.Count > 1)
+                ShowPath();
+            else HidePath();
         }
 
         private void OnSpawnEnemies()
         {
+            HidePath();
             SpawnObject();
             if (_instance is PatrolEnemy patrol)
             {
@@ -66,11 +70,17 @@ namespace LevelEditor
         public void AddPoint(Transform point)
         {
             _patrolPoints.Add(point);
+            if (_patrolPoints.Count > 1)
+                ShowPath();
+            else HidePath();
         }
 
         public void RemovePoint(Transform point)
         {
             _patrolPoints.Remove(point);
+            if (_patrolPoints.Count > 1)
+                ShowPath();
+            else HidePath();
         }
 
         public EditorPatrolPoint GetLastPatrolPoint()
@@ -84,13 +94,21 @@ namespace LevelEditor
 
         public void ShowPath()
         {
-            Vector3[] positions = new Vector3[_patrolPoints.Count];
+            _lr.enabled = true;
+            Vector3[] positions = new Vector3[_patrolPoints.Count + 1];
             for (int i = 0; i < _patrolPoints.Count; i++)
             {
                 Transform point = _patrolPoints[i];
                 positions[i] = point.position;
             }
+            positions[_patrolPoints.Count] = _patrolPoints[0].position;
+            _lr.positionCount = _patrolPoints.Count + 1;
             _lr.SetPositions(positions);
+        }
+
+        private void HidePath()
+        {
+            _lr.enabled = false;
         }
     }
 }

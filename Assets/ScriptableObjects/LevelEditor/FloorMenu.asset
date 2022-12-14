@@ -18,5 +18,6 @@ MonoBehaviour:
   IsFloor: 0
   IsMechanics: 0
   _tools:
-  - {fileID: 11400000, guid: a3da50bf059861942822c053d2bd22d4, type: 2}
+  - {fileID: 11400000, guid: 1a6e1e5cf7ce991409171d8742f1b7de, type: 2}
+  - {fileID: 11400000, guid: d88f1d3b76b6bde4a81c8cfd10ec1a87, type: 2}
   _selectedTool: {fileID: 0}
