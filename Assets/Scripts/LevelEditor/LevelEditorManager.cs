@@ -27,6 +27,7 @@ namespace LevelEditor
         {
             _main = Camera.main;
             LevelEditorEquippable.OnToolEquipped += SetTool;
+            SingleUseTool.OnToolUsed += OnFloorFillTool;
             TestButton.BakeTilemap += OnTestStart;
             TestButton.OnTestEnd += OnTestEnd;
             EditorEnemy.OnEnemyClicked += OnEnemyClicked;
@@ -35,6 +36,7 @@ namespace LevelEditor
         private void OnDisable()
         {
             LevelEditorEquippable.OnToolEquipped -= SetTool;
+            SingleUseTool.OnToolUsed -= OnFloorFillTool;
             TestButton.BakeTilemap -= OnTestStart;
             TestButton.OnTestEnd -= OnTestEnd;
             EditorEnemy.OnEnemyClicked -= OnEnemyClicked;
@@ -104,7 +106,11 @@ namespace LevelEditor
             }
         }
 
-
+        private void OnFloorFillTool(LevelEditorTool tool)
+        {
+            Unequip();
+            tool.UseTool(Vector3Int.zero, _floorTilemap);
+        }
 
         private bool IsMouseOverUI()
         {
