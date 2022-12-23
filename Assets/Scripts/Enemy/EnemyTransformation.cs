@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyTransformation : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent _navMeshAgent;
+    [SerializeField] protected NavMeshAgent _navMeshAgent;
     [SerializeField] private float _vampireSpeed, _batSpeed;
     [SerializeField] private Animator _animator;
     [SerializeField] protected bool _isBat;
