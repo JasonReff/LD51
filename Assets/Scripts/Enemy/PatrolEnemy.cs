@@ -34,7 +34,7 @@ public class PatrolEnemy : EnemyBase
     
     [SerializeField] private Color _gizmoColor = new Color(1f, 0f, 0f, 0.25f);
     public float VisionAngle { get => _visionAngle; }
-    public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; }
+    public bool DetectsPlayerThroughWall { get => _detectsPlayerThroughWall; set => _detectsPlayerThroughWall = value; }
     public bool ReverseOnFinish { get => _reverseOnFinish; }
     public bool RunsFromPlayer { get => _runsFromPlayer; set => _runsFromPlayer = value; }
     

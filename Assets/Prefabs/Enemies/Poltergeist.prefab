@@ -99,10 +99,22 @@ MonoBehaviour:
   _batSpeed: 3
   _animator: {fileID: 2154571605890152239}
   _isBat: 0
-  _mesh1ID: 0
-  _mesh2ID: 1
+  _mesh1Name: Humanoid
+  _mesh2Name: Ghost
+  _patrolEnemy: {fileID: 6977634535662376703}
 --- !u!195 &6977634535662376701 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 3043268560169403169, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
   m_PrefabInstance: {fileID: 5399346486240892380}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6977634535662376703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3043268560169403171, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
+  m_PrefabInstance: {fileID: 5399346486240892380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977634535662376643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38957ba0f83ae747a16677d3dd3362c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
