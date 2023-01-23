@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
     private Rigidbody2D rb;
     private Vector2 movement;
-    public bool IsDashing, CanMove;
+    public bool IsDashing, CanMove, IsOnIce;
 
     public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
 
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CanMove)
             rb.velocity = movement * playerSpeed;
+        //implement ice
     }
 
     private void UpdateAnimation()
