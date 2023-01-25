@@ -17,6 +17,8 @@ public abstract class EnemyBase : MonoBehaviour
     public float VisionRadius { get => _visionRadius; }
     private List<Vector2> _targetPositions = new List<Vector2>();
     public List<Vector2> TargetPositions => _targetPositions;
+    [SerializeField] private EnemyMovementController _movement;
+    public EnemyMovementController Movement { get => _movement; }
 
     protected virtual void Start()
     {
@@ -142,6 +144,7 @@ public class EnemyState
 
     protected void SetDestination(Vector2 destination)
     {
+
         _stateMachine.Agent.SetDestination(destination);
     }
 }
@@ -160,7 +163,7 @@ public class ChaseState : EnemyState
     {
         if (_playerTransform == null)
             _playerTransform = PlayerManager.Instance.transform;
-        _stateMachine.Agent.SetDestination(_playerTransform.position);
+        SetDestination(_playerTransform.position);
         CheckForPatrolState();
         CheckForAvoidState();
     }

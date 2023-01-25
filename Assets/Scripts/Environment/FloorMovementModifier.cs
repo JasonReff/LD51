@@ -5,13 +5,14 @@ using UnityEngine;
 public class FloorMovementModifier : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private bool _isSlippery;
+    public bool IsSlippery { get => _isSlippery; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PlayerMovement playerMovement))
+        if (collision.TryGetComponent(out IMovementController movementController))
         {
-            if (!playerMovement.IsDashing)
-                playerMovement.SetSpeed(_moveSpeed);
+            movementController.SetSpeed(_moveSpeed, _isSlippery);
         }
     }
 }

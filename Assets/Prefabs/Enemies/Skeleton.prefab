@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8654247563139196007}
   - component: {fileID: 8280124668314070833}
   - component: {fileID: 4923031286331526134}
+  - component: {fileID: -1878123165265953757}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -106,15 +107,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alwaysVisible: 1
   _visionRadius: 5
+  _movement: {fileID: -1878123165265953757}
   _patrolPoints:
   - {fileID: 7589513906314213411}
-  _detectsPlayer: 0
   _reverseOnFinish: 0
-  _detectsPlayerThroughWall: 0
-  _runsFromPlayer: 0
+  _detectsPlayer: 0
   _visionAngle: 90
-  _gizmoColor: {r: 1, g: 0, b: 0, a: 0.25}
+  _detectsPlayerThroughWall: 0
   OnlyDetectsForward: 0
+  _runsFromPlayer: 0
+  _wallPivot: 0
+  _startInRunState: 0
+  _gizmoColor: {r: 1, g: 0, b: 0, a: 0.25}
 --- !u!195 &371840125030450613
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -219,6 +223,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 371840125030450610}
+--- !u!114 &-1878123165265953757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371840125030450571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a173ff6cbc6bb478e71bade6bb7f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _navMeshAgent: {fileID: 371840125030450613}
+  _speedModifier: 0.7
+  _defaultAcceleration: 8
+  _slippingAcceleration: 12
+  _defaultTurnSpeed: 120
+  _slippingTurnSpeed: 90
 --- !u!1 &7693734546468755774
 GameObject:
   m_ObjectHideFlags: 0
