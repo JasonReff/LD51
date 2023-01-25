@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6271480667593106163, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271480667593106163, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: ca006259867b7934cb760af77c2ede67, type: 2}
     m_RemovedComponents:
     - {fileID: 1856420652397232511, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
     m_AddedGameObjects: []
@@ -101,7 +109,15 @@ MonoBehaviour:
   _isBat: 0
   _mesh1Name: Humanoid
   _mesh2Name: Ghost
+  _material1: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  _material2: {fileID: -876546973899608171, guid: 8d11a68f6829d4a46b2e6ac96fa3646c, type: 3}
+  _sr: {fileID: 6977634535662376696}
   _patrolEnemy: {fileID: 6977634535662376703}
+--- !u!212 &6977634535662376696 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3043268560169403172, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
+  m_PrefabInstance: {fileID: 5399346486240892380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!195 &6977634535662376701 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 3043268560169403169, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
