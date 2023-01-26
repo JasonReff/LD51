@@ -12,17 +12,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poltergeist
       objectReference: {fileID: 0}
+    - target: {fileID: 3043268560169403171, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
+      propertyPath: _patrolPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043268560169403172, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 318024870, guid: bdd3c94fb640f8641b0092c07fc6e3ee, type: 3}
     - target: {fileID: 3043268560169403172, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
       propertyPath: m_Color.b
-      value: 0.93333334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3043268560169403172, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
       propertyPath: m_Color.g
-      value: 0.7838488
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3043268560169403172, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3043268560169403173, guid: ab05ffdad37bb4e4baaece0eeb22dafd, type: 3}
       propertyPath: m_RootOrder

@@ -27,7 +27,7 @@ PrefabInstance:
     - target: {fileID: 6977634535662376696, guid: 9e9e579bd14c9b94ea791c28b975a070, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1794371747, guid: 3dadba1338c014549ba9fac48d9ec3f3, type: 3}
+      objectReference: {fileID: 318024870, guid: bdd3c94fb640f8641b0092c07fc6e3ee, type: 3}
     - target: {fileID: 6977634535662376696, guid: 9e9e579bd14c9b94ea791c28b975a070, type: 3}
       propertyPath: m_Color.a
       value: 1
