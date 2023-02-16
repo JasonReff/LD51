@@ -6,7 +6,8 @@ public class FloorMovementModifier : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private bool _isSlippery;
-    public bool IsSlippery { get => _isSlippery; }
+    public bool IsSlippery { get => _isSlippery; set => _isSlippery = value; }
+    public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
