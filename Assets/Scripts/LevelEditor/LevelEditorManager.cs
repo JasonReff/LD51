@@ -122,4 +122,52 @@ namespace LevelEditor
             return results.Count > 0;
         }
     }
+
+    public class LevelEditorSaveLoad : SingletonMonobehaviour<LevelEditorSaveLoad>
+    {
+        private SavedLevel _loadedLevel;
+
+
+    }
+
+    public class LevelReader
+    {
+        public List<SavedLevel> AllLevels;
+    }
+
+    [System.Serializable]
+    public class SavedLevel
+    {
+        public int FloorID;
+        public List<TileCoordinates> Wall;
+        public List<EnemyCoordinates> Enemies;
+
+        public class TileCoordinates
+        {
+            public int TileID;
+            public Vector2 TilePosition;
+        }
+        public class EnemyCoordinates
+        {
+            public int EnemyID;
+            public List<Vector2> Positions;
+        }
+    }
+
+    [System.Serializable]
+    public class TilePool : ScriptableObject
+    {
+        [SerializeField] private List<TileID> _allTiles;
+        [System.Serializable]
+        public class TileID
+        {
+            public int ID;
+            public GameObject TilePrefab;
+        }
+
+        public GameObject GetTile(int id)
+        {
+            return _allTiles.Find(t => t.ID == id).TilePrefab;
+        }
+    }
 }
