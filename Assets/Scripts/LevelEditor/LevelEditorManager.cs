@@ -126,13 +126,20 @@ namespace LevelEditor
     public class LevelEditorSaveLoad : SingletonMonobehaviour<LevelEditorSaveLoad>
     {
         private SavedLevel _loadedLevel;
+        [SerializeField] private LevelReader _reader;
 
 
     }
 
-    public class LevelReader
+    public class LevelReader : MonoBehaviour
     {
         public List<SavedLevel> AllLevels;
+
+
+        public void ReadLevelsFromFolder()
+        {
+
+        }
     }
 
     [System.Serializable]
@@ -151,23 +158,6 @@ namespace LevelEditor
         {
             public int EnemyID;
             public List<Vector2> Positions;
-        }
-    }
-
-    [System.Serializable]
-    public class TilePool : ScriptableObject
-    {
-        [SerializeField] private List<TileID> _allTiles;
-        [System.Serializable]
-        public class TileID
-        {
-            public int ID;
-            public GameObject TilePrefab;
-        }
-
-        public GameObject GetTile(int id)
-        {
-            return _allTiles.Find(t => t.ID == id).TilePrefab;
         }
     }
 }

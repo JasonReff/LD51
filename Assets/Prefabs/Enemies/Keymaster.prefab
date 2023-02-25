@@ -13,20 +13,24 @@ PrefabInstance:
       value: Keymaster
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1121394171, guid: 1cc41e437cb0d57439a4e80c2abf20e2, type: 3}
+    - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Color.b
-      value: 0.46858314
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Color.g
-      value: 0.8490566
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450608, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_Color.r
-      value: 0.52154195
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450609, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450609, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: m_LocalPosition.x
@@ -90,12 +94,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450615, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: _patrolPoints.Array.size
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 371840125030450615, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
       propertyPath: _patrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8654247563139196007, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d2e4c63b39343e5438bf4b0ed3f45913, type: 2}
     m_RemovedComponents:
     - {fileID: 8280124668314070833, guid: 80373fe98a42b1b46a7c05426b4e6419, type: 3}
     m_AddedGameObjects: []
