@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c744eb8ff83af0a44afdaacf82784689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tileSprite: {fileID: 21300000, guid: 206d9225bab722c499204270d2ea7427, type: 3}
+  _tileSprite: {fileID: 21300000, guid: 0a4298b6f82b45343b6fb4ba43a60dac, type: 3}
   _duration: 5
   _movementSpeed: 6
   _isSlippery: 1
