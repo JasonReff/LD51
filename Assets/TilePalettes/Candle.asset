@@ -37,5 +37,5 @@ MonoBehaviour:
   m_CanChangeZPosition: 0
   m_FloodFillContiguousOnly: 1
   m_Anchor: {x: -18.5, y: 7.5, z: 0}
-  m_Prefab: {fileID: 3391550809864052713, guid: 8eb29835836211d4daa42696e0800dea, type: 3}
+  m_Prefab: {fileID: 2402608721195199577, guid: 52af44b754308aa469ac8c6ce33fbc5c, type: 3}
   offset: {x: 0, y: 0, z: 0, w: 1}
