@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5042f04e49909449bc6c91f8c0c304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _classicMaterial: {fileID: 0}
+  _litMaterial: {fileID: 0}
 --- !u!114 &-5185682344429641490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1348b76d7602774e84af21aea715310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyGained: {fileID: 0}
+  _keyGained: {fileID: 8300000, guid: 0cbe4fcf999d7994a98c8962555b762b, type: 3}
   _keyID: 0

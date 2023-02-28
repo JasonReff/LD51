@@ -203,4 +203,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: 
   _animator: {fileID: 2495768407052519759}
-  _doorOpenSound: {fileID: 0}
+  _doorOpenSound: {fileID: 8300000, guid: e7214bed2ccbf8147bccce7edae3ba21, type: 3}

@@ -100,6 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41966ce51c36d0f4e8803d2a65ff3d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wallDestroyedClip: {fileID: 0}
+  _wallDestroyedClip: {fileID: 8300000, guid: 17c496b080ba7164faff679896a5da3f, type: 3}
   _connectedWalls: []
   _keyID: 0
