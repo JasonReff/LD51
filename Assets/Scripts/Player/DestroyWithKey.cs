@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class DestroyWithKey : MonoBehaviour
 {
@@ -27,5 +28,19 @@ public class DestroyWithKey : MonoBehaviour
         foreach (var wall in _connectedWalls)
             wall.SetActive(false);
         OnWallDestroyed?.Invoke();
+    }
+
+    public void ConnectToOtherLocks()
+    {
+        var allLocks = FindObjectsOfType<DestroyWithKey>();
+        var otherLocks = new List<GameObject>();
+        foreach (var Lock in allLocks) 
+        {
+            if (Lock.name == name && Lock != this)
+            {
+                otherLocks.Add(Lock.gameObject);
+            }
+        }
+        _connectedWalls = otherLocks;
     }
 }
