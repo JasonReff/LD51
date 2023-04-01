@@ -18,7 +18,18 @@ public class DestroyWithKeyEditor : Editor
         if (GUILayout.Button("Connect To Other Locks"))
         {
             script.ConnectToOtherLocks();
+            EditorUtility.SetDirty(script);
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+
+    [MenuItem("Tools/ConnectAllLocks")]
+    public static void ConnectAllLocks()
+    {
+        foreach (var Lock in GameObject.FindObjectsOfType<DestroyWithKey>())
+        {
+            Lock.ConnectToOtherLocks();
+            EditorUtility.SetDirty(Lock);
         }
     }
 }
